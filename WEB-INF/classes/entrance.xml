@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<all>
+	<rule code="manager">
+		<name>版主准入</name>
+		<author>Fan Gang-feng</author>
+		<desc>版主才能进入</desc>
+		<className>com.redmoon.forum.plugin.entrance.ManagerEntrance</className>
+		<adminEntrance>entranceManager.jsp</adminEntrance>		
+	</rule>
+</all>

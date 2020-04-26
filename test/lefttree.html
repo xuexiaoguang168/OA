@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>星云电脑教程 电脑基础教程 photoshop教程 gonet8.com</title>
+<meta name="keywords" content="电脑基础教程,电脑教程，教程，星云，电脑入门,电脑DIY,组建网络,网页制作,平面设计,电脑教程,photoshop,fireworks,flash,CorelDRAW,Dreamweaver">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+{$Skin_CSS} {$MenuJS}
+<script type='text/javascript' language='javascript1.2' src='/js/stm31.js'></script><script language='javascript' type='text/javascript' src='/js/TreeGuide.js'></script>
+<script language='javascript' type='text/javascript'>
+//树形导航的JS代码开始
+var expandState = 0;
+function expand(){
+  if(expandState == 0){setPace('master', 0, 10, 10); if(ie){document.menutop.src = '/images/menui.gif'}; expandState = 1;}
+  else{setPace('master', -200, 10, 10); if(ie){document.menutop.src='/images/menuo.gif'}; expandState = 0;}
+}
+document.write("<style type=text/css>#master {LEFT: -200px; POSITION: absolute; TOP: 25px; VISIBILITY: visible; Z-INDEX: 999}</style>")
+document.write("<table id=master width='218' border='0' cellspacing='0' cellpadding='0'><tr><td><img border=0 height=6 src=/images/menutop.gif  width=200></td><td rowspan='2' valign='top'><img id=menu onMouseOver=javascript:expand() border=0 height=70 name=menutop src=/images/menuo.gif width=18></td></tr>");
+document.write("<tr><td valign='top'><table width='100%' border='0' cellspacing='5' cellpadding='0'><tr><td height='400' valign='top'><table width=100% height='100%' border=1 cellpadding=0 cellspacing=5 bordercolor='#666666' bgcolor=#ecf6f5 style=FILTER: alpha(opacity=90)><tr>");
+document.write("<td height='10' align='center' bordercolor='#ecf6f5'><font color=999900><strong>栏 目 树 形 导 航</strong></font></td></tr><tr><td valign='top' bordercolor='#ecf6f5'>");
+document.write("<iframe width='100%' height='100%' src='/Article/ClassTree.asp' frameborder=0></iframe></td></tr></table></td></tr></table></td></tr></table>");
+var ie = document.all ? 1 : 0
+var ns = document.layers ? 1 : 0
+var master = new Object('element')
+master.curLeft = -200;   master.curTop = 10;
+master.gapLeft = 0;      master.gapTop = 0;
+master.timer = null;
+if(ie){var sidemenu = document.all.master;}
+if(ns){var sidemenu = document.master;}
+setInterval('FixY()',100);
+</script>
+
+</head>
+<body leftmargin=0 topmargin=0  onmousemove='HideMenu()'> 
+<div id=menuDiv style='Z-INDEX: 1000; VISIBILITY: hidden; WIDTH: 1px; POSITION: absolute; HEIGHT: 1px; BACKGROUND-COLOR: #9cc5f8'></div> 

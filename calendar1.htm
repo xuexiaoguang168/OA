@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>无标题文档</title>
+<script language="JavaScript">
+<!--
+	// 判断浏览器
+    isIE = (document.all ? true : false);
+
+    // 初始月份及各月份天数数组
+    var months = new Array("一　月", "二　月", "三　月", "四　月", "五　月", "六　月", "七　月",
+	 "八　月", "九　月", "十　月", "十一月", "十二月");
+    var daysInMonth = new Array(31, 28, 31, 30, 31, 30, 31, 31,
+            30, 31, 30, 31);
+	var displayMonth = new Date().getMonth();
+	var displayYear = new Date().getFullYear();
+	var displayDivName;
+	var displayElement;
+
+	function getXBrowserRef(eltname) {
+	 return (isIE ? document.all[eltname].style : document.layers[eltname]);
+	}
+	
+	function hideElement(eltname) { getXBrowserRef(eltname).visibility = 'hidden'; }
+	
+    function getDays(month, year) {
+    	//测试选择的年份是否是润年？
+        if (1 == month)
+        	return ((0 == year % 4) && (0 != (year % 100))) ||
+                  (0 == year % 400) ? 29 : 28;
+        else
+            return daysInMonth[month];
+    }
+
+    function getToday() {
+        // 得到今天的日期
+        this.now = new Date();
+        this.year = this.now.getFullYear();
+        this.month = this.now.getMonth();
+        this.day = this.now.getDate();
+    }
+
+    // 并显示今天这个月份的日历
+    today = new getToday();
+
+	function newCalendar(eltName) {
+		today = new getToday();
+        var parseYear = parseInt(displayYear + '');
+        var newCal = new Date(parseYear,displayMonth,1);
+        var day = -1;
+        var startDayOfWeek = newCal.getDay();
+        if ((today.year == newCal.getFullYear()) &&
+           (today.month == newCal.getMonth()))
+	    {
+        	day = today.day;
+        }
+        var intDaysInMonth = getDays(newCal.getMonth(), newCal.getFullYear());
+        var daysGrid = makeDaysGrid(startDayOfWeek,day,intDaysInMonth,newCal,eltName)
+	    if (isIE) {
+	       var elt = document.all[eltName];
+	       elt.innerHTML = daysGrid;
+	    } 
+		else {
+	       var elt = document.layers[eltName].document;
+	       elt.open();
+	       elt.write(daysGrid);
+	       elt.close();
+	    }
+	 }
+
+	 function incMonth(delta,eltName) {
+	   displayMonth += delta;
+	   if (displayMonth >= 12) {
+	     displayMonth = 0;
+	     incYear(1,eltName);
+	   } else if (displayMonth <= -1) {
+	     displayMonth = 11;
+	     incYear(-1,eltName);
+	   } else {
+	     newCalendar(eltName);
+	   }
+	 }
+
+	 function incYear(delta,eltName) {
+	   displayYear = parseInt(displayYear + '') + delta;
+	   newCalendar(eltName);
+	 }
+
+	 function makeDaysGrid(startDay,day,intDaysInMonth,newCal,eltName) {
+		var daysGrid;
+	    var month = newCal.getMonth();
+	    var year = newCal.getFullYear();
+	    var isThisYear = (year == new Date().getFullYear());
+	    var isThisMonth = (day > -1)
+	    daysGrid = '<table align=center border=1 cellspacing=0 cellpadding=2 width=80%><tr><td align="center" colspan="7" bgcolor=#ffffff nowrap>';
+	    daysGrid += '<font face="courier new, courier" size=2>';
+	    daysGrid += '<!--<a href="javascript:hideElement(\'' + eltName + '\')">x</a>-->';
+	    daysGrid += '&nbsp;&nbsp;';
+	    daysGrid += '<a href="javascript:incMonth(-1,\'' + eltName + '\')">&laquo; </a>';
+
+	    daysGrid += '<b>';
+	    if (isThisMonth) { daysGrid += '<font color=red>' + months[month] + '</font>'; }
+	    else { daysGrid += months[month]; }
+	    daysGrid += '</b>';
+
+	    daysGrid += '<a href="javascript:incMonth(1,\'' + eltName + '\')"> &raquo;</a>';
+	    daysGrid += '&nbsp;&nbsp;&nbsp;';
+	    daysGrid += '<a href="javascript:incYear(-1,\'' + eltName + '\')">&laquo; </a>';
+
+	    daysGrid += '<b>';
+	    if (isThisYear) { daysGrid += '<font color=red>' + year + '&nbsp;年</font>'; }
+	    else { daysGrid += ''+year+'&nbsp;年'; }
+	    daysGrid += '</b>';
+
+	    daysGrid += '<a href="javascript:incYear(1,\'' + eltName + '\')"> &raquo;</a></td></tr>';
+	    daysGrid += '<tr><td align="center">Su</td><td align="center">Mo</td><td align="center">Tu</td><td align="center">We</td><td align="center">Th</td><td align="center">Fr</td><td align="center">Sa</td></tr>';
+	    var dayOfMonthOfFirstSunday = (7 - startDay + 1);
+		daysGrid += "<tr>"
+		var count = 0;
+	    for (var intWeek = 0; intWeek < 6; intWeek++) {
+	       var dayOfMonth;
+	       for (var intDay = 0; intDay < 7; intDay++) {
+	         dayOfMonth = (intWeek * 7) + intDay + dayOfMonthOfFirstSunday - 7;
+		   	 if (dayOfMonth <= 0) {
+	         	daysGrid += "<td>&nbsp;</td>";
+		   	 }
+		     else if (dayOfMonth <= intDaysInMonth) {
+			 	count++;
+			   var color = "blue";
+			   if (day > 0 && day == dayOfMonth) color="red";
+			   daysGrid += '<td align="center"><a href="javascript:setDay(';
+			   daysGrid += dayOfMonth + ',\'' + eltName + '\')" '
+			   daysGrid += 'style="color:' + color + '">';
+			   var dayString = dayOfMonth + "</a> ";
+			   if (dayString.length == 6) dayString = '0' + dayString;
+			   daysGrid += dayString+"</td>";
+		    }
+	  }
+	  var dayspan = dayOfMonth-count;
+	  if (dayOfMonth < intDaysInMonth)
+	  	daysGrid += "</tr>"
+	  else
+	  {
+		if (dayspan<7 && dayspan>0){
+			for (var k=0; k<dayspan; k++) {
+				daysGrid += "<td>&nbsp;</td>"
+			}
+			daysGrid += "</tr>"
+		}
+	   }
+   }
+   return daysGrid + "</table>";
+}
+//-->
+</script>
+</head>
+<body>
+<div id=div_cal></div>
+</body>
+<script language="JavaScript">
+<!--
+newCalendar("div_cal");
+//-->
+</script>
+</html>

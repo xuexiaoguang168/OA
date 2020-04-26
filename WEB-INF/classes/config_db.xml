@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<tables>
+		<table name="sms_receive_record" objName="com.redmoon.oa.sms.SMSReceiveRecordDb">
+			        <primaryKey type="String">
+			           <unit>
+			        	<name>sequenceno</name>
+			        	<type>String</type>
+			           </unit>
+			        </primaryKey>
+			        <create>insert into sms_receive_record (id,cron,data_map,job_name,job_class,month_day,user_name) values(?,?,?,?,?,?,?)</create>
+			        <save>update sms_receive_record set cron=?,data_map=?,job_name=?,job_class=?,month_day=?,user_name=? where id=?</save>
+			        <load>select sequenceno,orgAddr,destAddr,receivedate,msgtext,status from sms_receive_record where id=?</load>
+			        <list>select sequenceno from sms_receive_record</list>
+			        <del>delete from sms_receive_record where id=?</del>
+			        <connName></connName>
+			        <blockSize>100</blockSize>
+			        <formValidatorFile>form_checker_oa.xml</formValidatorFile>
+		</table>
+	    <table name="scheduler" objName="com.redmoon.oa.kernel.JobUnitDb">
+	        <primaryKey type="int">
+	           <unit>
+	        	<name>id</name>
+	        	<type>int</type>
+	           </unit>
+	        </primaryKey>
+	        <create>insert into scheduler (id,cron,data_map,job_name,job_class,month_day,user_name) values(?,?,?,?,?,?,?)</create>
+	        <save>update scheduler set cron=?,data_map=?,job_name=?,job_class=?,month_day=?,user_name=? where id=?</save>
+	        <load>select id,cron,data_map,job_name,job_class,month_day,user_name from scheduler where id=?</load>
+	        <list>select id from scheduler</list>
+	        <del>delete from scheduler where id=?</del>
+	        <connName></connName>
+	        <blockSize>100</blockSize>
+	        <formValidatorFile>form_checker_oa.xml</formValidatorFile>
+	    </table>
+		
+						
+	    <table name="sq_user_priv" objName="com.redmoon.forum.person.UserPrivDb">
+	        <primaryKey type="String">
+	           <unit>
+	        	<name>user_name</name>
+	        	<type>String</type>
+	           </unit>
+	        </primaryKey>
+	        <create>insert into sq_user_priv (user_name,priv,attach_day_count,attach_size,attach_upload,attach_download,add_topic,reply_topic,vote,search) values(?,?,?,?,?,?,?,?,?,?)</create>
+	        <save>update sq_user_priv set priv=?,attach_day_count=?,attach_size=?,add_topic=?,reply_topic=?,vote=?,attach_upload=?,attach_download=?,attach_today=?,attach_today_upload_count=?,search=?,is_default=? where user_name=?</save>
+	        <load>select user_name,priv,attach_day_count,attach_size,add_topic,reply_topic,vote,attach_upload,attach_download,attach_today,attach_today_upload_count,search,is_default from sq_user_priv where user_name=?</load>
+	        <list>select user_name from sq_user_priv</list>
+	        <del>delete from sq_user_priv where user_name=?</del>
+	        <connName></connName>
+	        <blockSize>100</blockSize>
+	        <formValidatorFile></formValidatorFile>
+			<objCachable>true</objCachable>
+			<listCachable>true</listCachable>
+	    </table>
+	    <table name="sq_user_group_priv" objName="com.redmoon.forum.person.UserGroupPrivDb">
+	        <primaryKey type="compound">
+	           <unit>
+	        	<name>group_code</name>
+	        	<type>String</type>
+	           </unit>
+	           <unit>
+	        	<name>board_code</name>
+	        	<type>String</type>
+	           </unit>
+	        </primaryKey>
+	        <create>insert into sq_user_group_priv (group_code,board_code,priv,attach_upload,attach_download,add_topic,reply_topic,vote,search,view_topic) values(?,?,?,?,?,?,?,?,?,?)</create>
+	        <save>update sq_user_group_priv set priv=?,add_topic=?,reply_topic=?,vote=?,attach_upload=?,attach_download=?,money_code=?,money_sum=?,is_default=?,search=?,enter_board=?,view_topic=? where group_code=? and board_code=?</save>
+	        <load>select group_code,board_code,priv,add_topic,reply_topic,vote,attach_upload,attach_download,money_code,money_sum,is_default,search,enter_board,view_topic from sq_user_group_priv where group_code=? and board_code=?</load>
+	        <list>select group_code,board_code from sq_user_group_priv</list>
+	        <del>delete from sq_user_group_priv where group_code=? and board_code=?</del>
+	        <connName></connName>
+	        <blockSize>100</blockSize>
+	        <formValidatorFile></formValidatorFile>
+			<objCachable>true</objCachable>
+			<listCachable>true</listCachable>
+	    </table>
+	    <table name="sq_poll" objName="com.redmoon.forum.MsgPollDb">
+	        <primaryKey type="long">
+	           <unit>
+	        	<name>msg_id</name>
+	        	<type>long</type>
+	           </unit>
+	        </primaryKey>
+	        <create>insert into sq_poll (msg_id,expire_date,max_choice) values(?,?,?)</create>
+	        <save>update sq_poll set expire_date=?,max_choice=? where msg_id=?</save>
+	        <load>select msg_id,expire_date,max_choice from sq_poll where msg_id=?</load>
+	        <list>select msg_id from sq_poll</list>
+	        <del>delete from sq_poll where msg_id=?</del>
+	        <connName></connName>
+	        <blockSize>100</blockSize>
+	        <formValidatorFile></formValidatorFile>
+			<objCachable>true</objCachable>
+			<listCachable>true</listCachable>
+	    </table>	
+	    <table name="sq_poll_option" objName="com.redmoon.forum.MsgPollOptionDb">
+	        <primaryKey type="compound">
+	           <unit>
+	        	<name>msg_id</name>
+	        	<type>long</type>
+	           </unit>
+	           <unit>
+	        	<name>orders</name>
+	        	<type>int</type>
+	           </unit>
+	        </primaryKey>
+	        <create>insert into sq_poll_option (msg_id,orders,content) values(?,?,?)</create>
+	        <save>update sq_poll_option set content=?,vote_user=?,vote_count=? where msg_id=? and orders=?</save>
+	        <load>select msg_id,orders,content,vote_user,vote_count from sq_poll_option where msg_id=? and orders=?</load>
+	        <list>select msg_id,orders from sq_poll_option</list>
+	        <del>delete from sq_poll_option where msg_id=? and orders=?</del>
+	        <connName></connName>
+	        <blockSize>100</blockSize>
+	        <formValidatorFile></formValidatorFile>
+			<objCachable>true</objCachable>
+			<listCachable>true</listCachable>
+	    </table>
+	    <table name="sq_user_prop" objName="com.redmoon.forum.person.UserPropDb">
+	        <primaryKey type="String">
+	           <unit>
+	        	<name>name</name>
+	        	<type>String</type>
+	           </unit>
+	        </primaryKey>
+	        <create>insert into sq_user_prop (name,flower_count,egg_count) values(?,?,?)</create>
+	        <save>update sq_user_prop set flower_count=?,egg_count=? where name=?</save>
+	        <load>select flower_count,egg_count from sq_user_prop where name=?</load>
+	        <list>select name from sq_user_prop</list>
+	        <del>delete from sq_user_prop where name=?</del>
+	        <connName></connName>
+	        <blockSize>100</blockSize>
+	        <formValidatorFile></formValidatorFile>
+			<objCachable>true</objCachable>
+			<listCachable>true</listCachable>
+	    </table>
+	    <table name="sq_advertisement" objName="com.redmoon.forum.ad.AdDb">
+	        <primaryKey type="int">
+	           <unit>
+	        	<name>id</name>
+	        	<type>int</type>
+	           </unit>
+	        </primaryKey>
+	        <create>insert into sq_advertisement (id,title,begin_date,end_date,ad_type,content,width,height,url,boardcodes,font_size,image_alt,ad_kind) values(?,?,?,?,?,?,?,?,?,?,?,?,?)</create>
+	        <save>update sq_advertisement set title=?,begin_date=?,end_date=?,ad_type=?,content=?,width=?,height=?,url=?,boardcodes=?,font_size=?,image_alt=?,ad_kind=? where id=?</save>
+	        <load>select id,title,begin_date,end_date,ad_type,content,width,height,url,boardcodes,font_size,image_alt,ad_kind from sq_advertisement where id=?</load>
+	        <list>select id from sq_advertisement order by ad_type</list>
+	        <del>delete from sq_advertisement where id=?</del>
+	        <connName></connName>
+	        <blockSize>100</blockSize>
+	        <formValidatorFile></formValidatorFile>
+			<objCachable>true</objCachable>
+			<listCachable>true</listCachable>
+	    </table>	    	    
+	</tables>
+</config>
+

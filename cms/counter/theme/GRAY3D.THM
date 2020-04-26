@@ -1,0 +1,50 @@
+<% Sub header_theme %>
+<style type="text/css">
+<!--
+BODY {font-size:9pt;font-family:Tahoma,Verdana,MS Sans Serif,Courier New;}
+A:link,A:visited{text-decoration:none;}
+A:hover {text-decoration:underline;color:#999999}
+TR,TD,P{font-size:9pt}
+B{color:#FF0000;font-weight:normal;}
+INPUT.text,INPUT.file,SELECT,TEXTAREA{color:#000000;background-color:#F0F0F0;border:1 solid #101010}
+.notice{background-color:#F0F0F0;overflow:visible;}
+FONT.table{color:black}
+FONT.strong{color:#FFFFFF;font-weight:bold}
+.title{background-color:#5C81AA}
+.footer{color:black;font-size:8pt}
+.info{background-color:#5A5A5A}
+.retable,.rcontent{background-color:#F0F0F0}
+.outter,.cell{background-color:#C0C0C0}
+-->
+</style>
+</head>
+<body bgcolor="#C0C0C0" text="#000000" link="#000000" vlink="#000000" alink="#000000" topmargin=0>
+
+<div align=center>
+<!-- HEADER_END -->
+<style><!--
+FONT.small{font-size:7pt}
+--></style>
+<table border=0 cellpadding=0 cellspacing=0 width=600 class=outter>
+	<tr>
+	<td><img src="theme/default/lefttop.gif" border=0 width=10 height=10></td>
+	<td background="theme/default/top.gif"><img src="theme/default/trans.gif" height=4 width=1></td>
+	<td><img src="theme/default/righttop.gif" border=0 width=10 height=10></td>
+	</tr><tr>
+	<td rowspan=9 background="theme/default/lwing.gif"><img src="theme/default/trans.gif" width=4 height=10></td>
+	<td height=20 width=100% background="theme/default/titlebg.gif">&nbsp;
+<font class=strong> STATISTICS SINCE <b><%=StartDate%></b></font>
+</td><td rowspan=9 background="theme/default/rwing.gif"><img src="theme/default/trans.gif" width=4 height=1></td></tr>
+<tr><td background="theme/default/hr.gif"><img src="theme/default/trans.gif" height=4 width=1></td></tr>
+<tr><td></td></tr><tr><td background="theme/default/hr.gif"><img src="theme/default/trans.gif" height=4  width=1></td></tr>
+<tr><td></td></tr><tr><td background="theme/default/hr.gif"><img src="theme/default/trans.gif" height=4 width=1></td></tr>
+<tr><td align=center></td></tr><tr><td background="theme/default/hr.gif"><img src="theme/default/trans.gif" height=6 width=1></td></tr>
+<% End Sub %>
+
+<% Sub footer_theme %>
+</table>截止日期: <%=logDate%>, 统计天数: <%=DayTotal%>/<%=TotalDays%> 天, 预计本日访问量: <%=intending%> 人
+<tr><td><img src="theme/default/leftbottom.gif" width=10 height=1 border=0></td>
+<td background="theme/default/bottom.gif"><img src="theme/default/trans.gif" height=4 width=1></td>
+<td><img src="theme/default/rightbottom.gif" border=0 width=10 height=10></td>
+</tr></table>
+<% End Sub %>

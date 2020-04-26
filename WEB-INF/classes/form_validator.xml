@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<form code="vehicle_apply">
+		<author>Fan Gang-feng</author>
+		<className>com.redmoon.oa.vehicle.VehicleFormValidator</className>
+		<desc>用于检查流程中车辆派遣是否有时间上的重叠</desc>
+		<date>2006-4-27</date>
+	</form>
+</config>

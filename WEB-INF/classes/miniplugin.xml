@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<plugin code="home">
+		<author>Fan Gang-feng</author>
+		<resource>res.forum.miniplugin.homepage</resource>		
+		<adminEntrance>../miniplugin/home/admin/manager.jsp</adminEntrance>
+	</plugin>
+	<plugin code="weather">
+		<author>Fan Gang-feng</author>
+		<resource>res.forum.miniplugin.weather</resource>		
+		<adminEntrance>../miniplugin/weather/admin/manager.jsp</adminEntrance>
+	</plugin>
+	<plugin code="index_new_elite_top">
+		<author>Blue Wind</author>
+		<resource>res.forum.miniplugin.index_new_elite_top</resource>	
+		<adminEntrance></adminEntrance>
+		<isPlugin>false</isPlugin>
+	</plugin>	
+</config>
+

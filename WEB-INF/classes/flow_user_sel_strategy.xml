@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<all>
+	<item code="freefirst">
+		<name>最闲者优先</name>
+		<author>Fan Gang-feng</author>
+		<className>com.redmoon.oa.flow.strategy.FreeFirst</className>
+	</item>
+</all>
+

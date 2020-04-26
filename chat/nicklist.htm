@@ -1,0 +1,66 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<meta http-equiv="expires" content="wed, 26 Feb 1997 08:21:57 GMT">
+<title>呢称显示</title>
+<SCRIPT LANGUAGE=javascript>
+<!--
+function setroom(myroom)
+{
+	if (typeof(room)=="object")
+		room.innerText = myroom;
+}
+//-->
+</SCRIPT>
+
+<SCRIPT ID=clientEventHandlersJS LANGUAGE=javascript>
+<!--
+function window_onload() {
+	if (typeof(window.parent.talkarea)=="object")
+		if (typeof(window.parent.talkarea.setinterfaceclr)=="function")
+			window.parent.talkarea.setinterfaceclr()
+	if (typeof(window.parent.chatappletarea)=="object")
+	{
+		if (typeof(window.parent.chatappletarea.getRoom)=="function")
+		{
+			setroom(window.parent.chatappletarea.getRoom());
+		}
+	}
+}
+//-->
+</SCRIPT>
+<link href="common.css" rel="stylesheet" type="text/css">
+</head>
+<body background="images/pic-right-back.gif" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" LANGUAGE=javascript onLoad="return window_onload()">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td height="100%"> <table width="127" height="90%" border="0" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td height="25" valign="bottom" background="images/pic-right-top.gif">
+<div align="center">
+<span id="room" class="right-title"></span><br>
+</div>
+          </td>
+        </tr>
+        <tr> 
+          <td height="100%" valign="top" background="images/pic-right-mid.gif"> 
+            <div align="center">
+<a href=javascript:window.parent.talkarea.getname('大家')>[大  家]</a><br>
+<span id=s_nicknamelist name=s_nicknamelist></span>
+</div>
+
+		  </td>
+        </tr>
+        <tr> 
+          <td><img src="images/pic-right-bot.gif" width="127" height="9"></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>

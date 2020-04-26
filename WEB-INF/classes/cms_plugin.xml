@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<plugin code="sms">
+		<author>Fan Gang-feng</author>
+		<classUnit>cn.js.fan.module.cms.plugin.sms.SMSUnit</classUnit>		
+		<version>1.0</version>
+		<jar>sms.jar</jar>
+		<resource>res.cms.plugin.sms</resource>
+		<type>dir</type>
+		<adminEntrance></adminEntrance>
+		<page>
+			<add>cms/plugin/sms/add.jsp</add>
+			<edit>cms/plugin/sms/edit.jsp</edit>
+			<view>doc_show.jsp</view>
+		</page>		
+		<skins>
+			<skin code="default">
+				<name>默认皮肤</name>
+				<author>Fan Gang-feng</author>
+				<path>skin/default</path>
+			</skin>
+		</skins>
+	</plugin>
+</config>

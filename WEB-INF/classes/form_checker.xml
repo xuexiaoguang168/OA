@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <form code="sq_user_priv_save" res="res.forum.person.UserPrivDb" onErrorExit="false">
+			<rules>
+				<rule>String, 		add_topic, 					#add_topic,					0</rule>
+				<rule>String, 		reply_topic,				#reply_topic,				0</rule>
+				<rule>String, 		vote,						#vote,						0</rule>
+				<rule>String, 		search,						#search,					0</rule>
+				<rule>String, 		attach_upload,				#attach_upload,				0</rule>
+				<rule>String, 		attach_download,			#attach_download,			0</rule>
+				<rule>String, 		is_default,					#is_default,			0</rule>
+				<rule>int, 	  		attach_size, 				#attach_size, 				not</rule>
+				<rule>int, 	  		attach_day_count, 			#attach_day_count, 			not</rule>
+				<rule>String, 		priv, 						#priv, 						empty</rule>
+				<rule>String, 		attach_today, 				#attach_today, 				empty</rule>
+				<rule>int, 			attach_today_upload_count, 	#attach_today_upload_count, 0</rule>
+			</rules>
+			<unionRules>
+			</unionRules>
+    </form>
+    <form code="sq_user_group_priv_save" res="res.forum.person.UserPrivDb" onErrorExit="false">
+			<rules>
+				<rule>String, 		add_topic, 					#add_topic,					0</rule>
+				<rule>String, 		reply_topic,				#reply_topic,				0</rule>
+				<rule>String, 		vote,						#vote,						0</rule>
+				<rule>String, 		search,						#search,					0</rule>
+				<rule>String, 		attach_upload,				#attach_upload,				0</rule>
+				<rule>String, 		attach_download,			#attach_download,			0</rule>
+				<rule>String, 		is_default,					#is_default,			0</rule>				
+				<rule>String, 		priv, 						#priv, 						empty</rule>
+				<rule>String, 		money_code, 				#money_code, 				empty</rule>
+				<rule>int, 			money_sum, 					#money_sum, 				0</rule>
+				<rule>String, 		enter_board, 					#enter_board,					0</rule>				
+				<rule>String, 		view_topic, 					#view_topic,					0</rule>				
+			</rules>
+			<unionRules>
+			</unionRules>
+    </form>	
+    <form code="cms_template_create" res="res.cn.js.fan.module.cms.TemplateDb" onErrorExit="false">
+			<rules>
+				<rule>int, 				id, 				#id,			auto_inc=com.redmoon.forum.SequenceMgr$20</rule>
+				<rule>String, 		name,				#name,				not, min&gt;0, max&lt;50</rule>
+				<rule>String, 		type_code,	#type_code,						not</rule>
+				<rule>String, 		path,				#path,						not</rule>
+			</rules>
+			<unionRules>
+			</unionRules>
+    </form>
+    <form code="cms_template_save" res="res.cn.js.fan.module.cms.TemplateDb" onErrorExit="false">
+			<rules>
+				<rule>int, 			id, 				#id,					not</rule>
+				<rule>String, 		name,				#name,				not,	min&gt;0, max&lt;50</rule>
+				<rule>String, 		type_code,	#type_code,		not</rule>
+				<rule>String, 		path,				#path,						not</rule>
+			</rules>
+			<unionRules>
+			</unionRules>
+    </form>
+    <form code="sq_ad_create" res="res.forum.ad.AdDb" onErrorExit="false">
+			<rules>
+				<rule>int, 			id, 				#id,			auto_inc=com.redmoon.forum.SequenceMgr$22</rule>
+				<rule>String, 		title,				#title,			not,		min&gt;0, max&lt;50</rule>
+				<rule>Date, 		begin_date,			#begin_date,	allow, format=yyyy-MM-dd</rule>
+				<rule>Date, 		end_date,			#end_date,	allow, format=yyyy-MM-dd</rule>
+				<rule>int, 			ad_type, 			#ad_type,		0</rule>
+				<rule>String, 		content,			#content,		not</rule>
+				<rule>int, 			width, 				#width,			0</rule>
+				<rule>int, 			height, 			#height,		0</rule>
+				<rule>String, 		url,				#url,			empty</rule>
+				<rule>String, 		boardcodes,			#boardcodes,	not</rule>
+				<rule>String, 		font_size,			#font_size,		empty</rule>
+				<rule>String, 		image_alt,			#image_alt,		empty</rule>
+				<rule>int, 			ad_kind, 			#ad_kind,		0</rule>
+			</rules>
+			<unionRules>
+			</unionRules>
+    </form>  
+    <form code="sq_ad_save" res="res.forum.ad.AdDb" onErrorExit="false">
+			<rules>
+				<rule>int, 			id, 				#id,			not</rule>
+				<rule>String, 		title,				#title,			not,		min&gt;0, max&lt;50</rule>
+				<rule>Date, 		begin_date,			#begin_date,	allow, format=yyyy-MM-dd</rule>
+				<rule>Date, 		end_date,			#end_date,	allow, format=yyyy-MM-dd</rule>
+				<rule>int, 			ad_type, 			#ad_type,		0</rule>
+				<rule>String, 		content,			#content,		not</rule>
+				<rule>int, 			width, 				#width,			0</rule>
+				<rule>int, 			height, 			#height,		0</rule>
+				<rule>String, 		url,				#url,			empty</rule>
+				<rule>String, 		boardcodes,			#boardcodes,	not</rule>
+				<rule>String, 		font_size,			#font_size,		empty</rule>
+				<rule>String, 		image_alt,			#image_alt,		empty</rule>
+				<rule>int, 			ad_kind, 			#ad_kind,		0</rule>
+			</rules>
+			<unionRules>
+			</unionRules>
+    </form>	  	
+</root>

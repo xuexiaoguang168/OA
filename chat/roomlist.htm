@@ -1,0 +1,71 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+<TITLE>房间列表</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<link href="common.css" rel="stylesheet" type="text/css">
+<SCRIPT LANGUAGE=javascript>
+<!--
+function jumptoroom(room)
+{
+	if (typeof(window.parent.chatappletarea.jumptoroom)=="function")
+		window.parent.chatappletarea.jumptoroom(room);
+}
+
+function parseRooms(vrooms)
+{
+	var infg = "#$#";
+	var outfg = "#*#";
+	rooms.innerHTML = vrooms;
+	var vrooms = rooms.innerHTML;
+	var roomary = vrooms.split( outfg );
+	vrooms = "";
+	var ary;
+	for (i=0; i<roomary.length; i++)
+	{
+		ary = roomary[i].split(infg)
+		vrooms += "<A href=javascript:jumptoroom('"+ary[0]+"')>"+ary[0]+"</A> ("+ary[1]+"人)<br>"
+	}
+	rooms.innerHTML = vrooms;
+}
+//-->
+</SCRIPT>
+
+<SCRIPT ID=clientEventHandlersJS LANGUAGE=javascript>
+<!--
+
+function window_onload() {
+	var vrooms;
+	if (typeof(window.parent.chatappletarea.roomlist)=="function")
+	{
+		vrooms = window.parent.chatappletarea.roomlist()
+	}
+	parseRooms(vrooms);
+}
+
+//-->
+</SCRIPT>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></HEAD>
+<BODY background="images/pic-right-back.gif" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="return window_onload()" LANGUAGE=javascript>
+<table width="127" height="90%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td height="25" valign="bottom" background="images/pic-right-top.gif"> <div align="center"> 
+        <span class="right-title">房间列表</span><br>
+      </div></td>
+  </tr>
+  <tr> 
+    <td height="100%" valign="top" background="images/pic-right-mid.gif"> <div align="center"> 
+		<span id=rooms></span>
+        </div></td>
+  </tr>
+  <tr> 
+    <td><img src="images/pic-right-bot.gif" width="127" height="9"></td>
+  </tr>
+</table>
+</BODY>
+</HTML>
+
+<html></html>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<basic>
+    <item code="people" name="民族">
+        <options />
+        <defaultValue />
+    </item>
+    <item code="healthState" name="健康状况">
+        <options />
+        <defaultValue />
+    </item>
+    <item code="culture" name="文化程度">
+        <options />
+        <defaultValue />
+    </item>
+    <item code="insupportCadreLevel" name="后备干部级别">
+        <options />
+        <defaultValue />
+    </item>
+    <item code="polity" name="政治面貌">
+        <options />
+        <defaultValue />
+    </item>
+    <item code="typeOfWork" name="编制情况">
+        <options />
+        <defaultValue />
+    </item>
+    <item code="sex" name="性别">
+        <options />
+        <defaultValue />
+    </item>
+    <item code="inActiveService" name="在职情况">
+        <options />
+        <defaultValue />
+    </item>
+    <item code="grade" name="学历">
+        <options />
+        <defaultValue />
+    </item>
+    <item code="degree" name="学位">
+        <options />
+        <defaultValue />
+    </item>
+    <item code="appellation" name="称谓">
+        <options />
+        <defaultValue />
+    </item>
+    <item code="profession" name="专业技术职务">
+        <options />
+        <defaultValue />
+    </item>
+    <item code="result" name="考核结果">
+        <options />
+        <defaultValue />
+    </item>
+    <item code="cadresSource" name="干部来源">
+        <options />
+        <defaultValue />
+    </item>
+    <item code="isJob" name="是否在职">
+        <options />
+        <defaultValue />
+    </item>
+</basic>
+

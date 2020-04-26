@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<all>
+	<skin code="default">
+		<name>默认皮肤</name>
+		<author>Fan Gang-feng</author>
+		<path>skin/default</path>
+	</skin>
+	<skin code="blue">
+		<name>蓝色经典</name>
+		<author>Fan Gang-feng</author>
+		<path>skin/blue</path>
+	</skin>
+	<skin code="green">
+		<name>暗绿幽雅</name>
+		<author>Fan Gang-feng</author>
+		<path>skin/green</path>
+	</skin>
+	<skin code="sky">
+		<name>蓝天白云</name>
+		<author>Fan Gang-feng</author>
+		<path>skin/welcome</path>
+	</skin>
+	<skin code="love">
+		<name>浪漫爱情</name>
+		<author>Fan Gang-feng</author>
+		<path>skin/love</path>
+	</skin>
+	<skin code="art">
+		<name>艺术色彩</name>
+		<author>Fan Gang-feng</author>
+		<path>skin/art</path>
+	</skin>
+</all>

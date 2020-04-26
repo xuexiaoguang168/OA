@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<link href="../../../css.css" rel="stylesheet" type="text/css">
+<title>异或发散</title>
+<style type="text/css">
+<!--
+.STYLE8 {color: #3399FF}
+-->
+</style>
+</head>
+
+<body>
+<table width="646" border="0" align="center">
+  <tr>
+    <td class="head"><div align="center" class="help_title"><br />
+      异或发散    </div>
+        <br /></td>
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;一个任务处理完后，如果其后面可允许走多个分支流程，但只允许选择其中某一个分支运行。如下图所示，虽然在任务A 后预订了三个不同的任务，但是仅任务D 满足条件（人工操作选择），造成后续的流程中，走了A——D 分支，而另外的分支被抛弃。</td>
+  </tr>
+  <tr>
+    <td class="help_title">创建异或发散</td>
+  </tr>
+  <tr>
+    <td><ul><li>
+&nbsp;<li>
+&nbsp;<li>
+&nbsp;<li>
+&nbsp;<li></ul></td>
+  </tr>
+  <tr>
+    <td width="640"><p>预定义流程设计（<a href="../../design.html" class="STYLE8">流程流程设计器使用方法</a>） </p>
+      1.<span class="help_title">串签</span>： 最为简单，按照预定的任务列表，有序的执行。<a href="../../design.html#chuanqian" class="STYLE8">创建串签</a>后如下图所示：
+      <p><img src="../images/image001.gif" /><br />
+      </p>
+      2.<span class="help_title">会签</span>： 
+      即所有参与用户均需签署办理意见。<a href="../../design.html#huiqian" class="STYLE8">创建会签</a>如下图所示：<br />
+      &nbsp;&nbsp;按顺序会签:会签人按照流程事先设定的人员顺序进行会签,如: 有些流程必须要总经理先签,其它用户才能签。
+      <p><img src="../images/image006.jpg" /><br />
+        3.<span class="help_title">异或发散</span>：一个任务处理完后，如果其后面可允许走多个分支流程，但只允许选择其中某一个分支运行。如下图所示，虽然在任务A 后预订了三个不同的任务，但是仅任务D 满足条件（人工操作选择），造成后续的流程中，走了A——D 分支，而另外的分支被抛弃。</p>
+      <p><img width="443" height="293" src="../images/image002.gif" /><br />
+          <br />
+        4．<span class="help_title">同步聚合</span>：在聚合点，会等待所有分支的到来，如果不考虑超时（一般流程回设定任务执行期限）和异常等情况下，流程必须等待所有的分支（任务B、任务 C和任务D ）都执行完（到达And 汇聚点）后，才能激活后续的任务，也就说流程才能正确的往下运行。<br />
+        <img width="443" height="278" src="../images/image003.gif" /><br />
+        5．<span class="help_title">异步聚合</span><br />
+        多分支在聚合的时候，采用类似于“先进先出”法则，任何一个分支，在到达这个聚会点的时候，均会激活后续流程的运转。 <br />
+        <img width="440" height="263" src="../images/image004.gif" /><br />
+        6．<span class="help_title">催办</span><br />
+        在执行完任务A 到任务B 的运转后，任务A 设定一个催办日期，在催办日期到来的时候，向任务B 发送催办请求，以催促任务B 的执行。其前提是，任务A 已经执行过，任务正在执行（有可能已经执行完）<br />
+        7．<span class="help_title">打回</span><br />
+        打回，在流程中也是较为通用的动作：流程由任务A 运转到任务B，任务B 虽然接受了A 所发送的请求或数据，但任务B不同意情况下，任务B打回给A ，重新执行。<br />
+        &nbsp;&nbsp;工作人员按要求提交文档后，事后却发现填写错误或者需要临时追加人员，这时在下一活动参与者还没有签收的情况下，工作人员可以在＂经办文件＂中收回文档进行重新办理，程序自动发送电子邮件告之对方，文档已被收回，并重新发送待办事宜要求收回者进行处理。 <br />
+        举例：科员起草了一份文件，交给处长审批。但处长不同意，然后打回给科员重新修改。<br />
+      </p></td>
+  </tr>
+  <tr>
+    <td><img src="../images/image007.gif" width="439" height="249" /><br />
+      8．<span class="help_title">用户指定代理人</span><br />
+      一个任务交给了员工A（角色A）处理，但是员工A 最近出差，无法正常办理，就可以委托给员工B（可能是角色A，也可能是角色B ）处理，以保证流程能够正常的进行下去。</td>
+  </tr>
+  <tr>
+    <td><div align="center"><img src="../images/user_proxy.gif" width="496" height="254" /></div></td>
+  </tr>
+  <tr>
+    <td><div align="center">(工作流代办设置界面)</div></td>
+  </tr>
+  <tr>
+    <td>9.<span class="help_title">集成Ofiice控件</span>(需安装签名批注插件)</td>
+  </tr>
+  <tr>
+    <td>通过对Office控件的集成,可以实现强制性痕迹保留,Word公文模板选择,打印,套红头,电子盖章,手写批注等功能.</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

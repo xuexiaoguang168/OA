@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<all>
+    <skin code="default" default="false">
+        <name>绿草青青</name>
+        <author>Fan Gang-feng</author>
+        <path>skin/default</path>
+        <tableBorderColor>#edeced</tableBorderColor>
+    </skin>
+    <skin code="qing" default="false">
+        <name>青青苹果</name>
+        <author>Fan Gang-feng</author>
+        <path>skin/qing</path>
+        <tableBorderColor>#3399CC</tableBorderColor>
+    </skin>
+    <skin code="blue" default="false">
+        <name>蓝色经典</name>
+        <author>Fan Gang-feng</author>
+        <path>skin/blue</path>
+        <tableBorderColor>#3399CC</tableBorderColor>
+    </skin>
+    <skin code="sweet" default="false">
+        <name>佳人有约</name>
+        <author>Fan Gang-feng</author>
+        <path>skin/sweet</path>
+        <tableBorderColor>#FFD2FF</tableBorderColor>
+    </skin>
+    <skin code="bluedream" default="true">
+        <name>蓝色梦想</name>
+        <author>Fan Gang-feng</author>
+        <path>skin/bluedream</path>
+        <tableBorderColor>#edeced</tableBorderColor>
+    </skin>
+</all>
+

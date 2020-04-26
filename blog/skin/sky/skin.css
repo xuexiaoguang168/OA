@@ -1,0 +1,216 @@
+.p9
+{
+    FONT-SIZE: 9pt
+}
+TD {
+	TABLE-LAYOUT: fixed; FONT-SIZE: 9pt; WORD-BREAK: break-all; FONT-FAMILY:   
+}
+.singleboarder
+{
+    BORDER-BOTTOM: #4a3163 1px solid;
+    BORDER-LEFT: #4a3163 1px solid;
+    BORDER-RIGHT: #4a3163 1px solid;
+    BORDER-TOP: #4a3163 1px solid;
+    FONT-SIZE: 9pt
+}
+img {
+border: 0;
+}
+BODY {
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	FONT-SIZE: 9pt;
+    SCROLLBAR-FACE-COLOR: #f6f6f6;
+    SCROLLBAR-HIGHLIGHT-COLOR: #ffffff;
+    SCROLLBAR-SHADOW-COLOR: #cccccc;
+    SCROLLBAR-3DLIGHT-COLOR: #cccccc;
+    SCROLLBAR-ARROW-COLOR: #330000;
+    SCROLLBAR-TRACK-COLOR: #f6f6f6;
+    SCROLLBAR-DARKSHADOW-COLOR: #ffffff;
+	background-image:url(images/bg.gif);
+	background-color:#E3E3E3;
+}
+.tableframe_gray{
+    border-right-width: 1px;
+	border-left-width: 1px;
+	border-bottom-width: 1px;
+	border-top-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-bottom-style: solid;
+	border-top-style: solid;
+	border-right-color: #cccccc;
+	border-left-color: #cccccc;
+	border-bottom-color: #cccccc;
+	border-top-color: #cccccc;
+}
+.table_banner
+{
+width: 760px;
+height: 155px;
+background-image: url(images/bg_title.jpg);
+}
+.blog_table_main {
+width:760px;
+}
+A{
+	color: #2B91D5;
+	text-decoration: none;
+}
+A:visited{
+	color: #2B91D5;
+}
+A:hover{
+	color: #2B91D5;
+	text-decoration: underline;
+}
+A.nav{
+	color: white;
+	text-decoration: none;
+	font-weight:bold;
+}
+A.nav:visited{
+	color: white;
+	font-weight:bold;
+}
+A.nav:hover{
+	color: white;
+	text-decoration: underline;
+	font-weight:bold;
+}
+.blog_table_nav {
+width: 760px;
+background-image: url(images/nav_bg.gif);
+height:22px;
+color:#FFFFFF;
+border: 1px #cccccc solid;
+}
+.blog_banner_space {
+background-color:#E7E7E7;
+height:2px;
+}
+.blog_left_table {
+background-color:#F5F5F5;
+}
+A.blog_link_username{
+	color: 006699;
+	text-decoration: underline;
+	font-size: 14px;
+	font-weight:bold;
+}
+A.blog_link_username:visited{
+	text-decoration: underline;
+	color: 006699;
+	font-size: 14px;
+	font-weight:bold;
+}
+A.blog_link_username:hover{
+	color: 006699;
+	font-size: 14px;
+	font-weight:bold;
+	text-decoration: underline;
+}
+td.blog_calendar_td_header {
+background-color:#ADDCFC;
+color: #eeeee;
+}
+td.blog_td_spacer_up {
+background-color:#E7E7E7;
+height:1px;
+}
+td.blog_td_spacer_down {
+background-image:url(images/dot.gif);
+height:1px;
+}
+td.blog_td_spacer_down {
+background-color:#EEFCFF;
+height:1px;
+}
+td.blog_td_title {
+background-color:#ADDCFC;
+color: #000000;
+height:26px;
+}
+table.blog_table_list_header {
+background-color:#E8F0F1;
+}
+td.blog_td_list_header {
+background-color:#96D2FF;
+color:#FFFFFF;
+}
+td.blog_td_list_item {
+background-color:#F7F7F7;
+height: 26px;
+}
+.blog_font_hit {
+font-weight:bold;
+color: #FF6602;
+}
+.text_bold_16 {
+font-weight:bold;
+font-size:16px;
+}
+.text_14 {
+font-size:14px;
+}
+.table_day {
+background-color: #A7B3DC;
+}
+.table_day A{
+	color: #ffffff;
+	text-decoration: none;
+}
+.table_day A:visited{
+	text-decoration: none;
+	color: #ffffff;
+}
+.table_day A:hover{
+	color: #ffffff;
+	text-decoration: underline;
+}
+.showblog_td_title {
+background-color:#E8F0F1;
+height:26px;
+}
+.showblog_td_author {
+background-color:#eeeeee;
+height:24px;
+}
+.table_main_text {
+	background-color:#F7F7F7;
+  border-right-width: 1px;
+	border-left-width: 1px;
+	border-bottom-width: 1px;
+	border-top-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-bottom-style: solid;
+	border-top-style: solid;
+	border-right-color: #cccccc;
+	border-left-color: #cccccc;
+	border-bottom-color: #cccccc;
+	border-top-color: #cccccc;
+}
+.td_comment_bar {
+background-color:#CCCCCC;
+color:#000033;
+font-weight:bold;
+}
+.listdayblog_td_title {
+background-color:#EEEEEE;
+font-weight:bold;
+height:26px;
+}
+li.titleBar {
+list-style-image:url(images/icon_left_title.gif);
+padding-left: 10px;
+}
+td.blog_td_seperate {
+height:15px;
+}
+td.blog_td_main {
+background-image:url(images/bg_td_main.jpg);
+}
+
+

@@ -1,0 +1,23 @@
+系统特点：
+   云网OA（Cloud Web OA 简称CWOA），基于JAVA BEAN、SERVLET设计，拥有强大的可视化流程设计器，支持串签、会签、异或发散、异或聚合、条件节点等，支持可视化的智能表单设计器，操作简单，易上手，
+   网络硬盘仿Window浏览器设计，支持网络邻居式的共享、并可将文件发布至部门或全局，档案管理部分按政府部门通用要求设计，并将每年跟随政府档案管理方式的调整
+   作同步更新或升级。系统论坛、博客采用功能同样强大的CWBBS。
+1、系统环境要求：
+   MySQL4.1以上版本，需配置为支持utf8连接方式
+   JDK1.5以上版本
+   Tomcat5.5以上版本
+   推荐在Windows上运行
+
+2、安装好以上环境后，配置好虚拟目录，比如：配置好后的访问路径为http://localhost:8080/oa/index.jsp
+   导入setup目录下的数据库文件redmoonoa.sql
+   例：将redmoonoa.sql拷贝至C盘根目录下
+   运行：mysql\bin\mysql -u root -p --default-character=utf8
+   mysql> source c:\redmoonoa.sql
+   
+3、运行 http://localhost:8080/oa/setup
+   按照操作向导一步一步进行，注意在配置时所有的路径中的"\"，请用"/"替代
+
+4、管理员帐号：admin 密码：111111
+   登录路径：http://localhost:8080/oa/index.jsp
+
+5、详情请见http://www.cloudwebsoft.com，感谢您对镇江云网软件技术有限公司的支持！

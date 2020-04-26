@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="gb2312"?>
+<config>
+    <Application>
+        <name>云网OA</name>
+        <author>Fan Gang-feng</author>
+        <server>localhost</server>
+        <port>8080</port>
+        <virtualPath>oa</virtualPath>
+        <bak_path>bak</bak_path>
+        <FileSize>2048000</FileSize>
+        <!--以K为单位-->
+        <WebEdit>
+            <MaxSize>20480000</MaxSize>
+            <!--以字节为单位-->
+            <maxUploadingFileCount>30</maxUploadingFileCount>
+        </WebEdit>
+        <hasBlog>true</hasBlog>
+        <smtpServer>localhost</smtpServer>
+        <smtpPort>25</smtpPort>
+        <smtpUser>administrator</smtpUser>
+        <smtpPwd>null</smtpPwd>
+        <email>root@zjrj.cn</email>
+        <realPath>F:/oa/</realPath>
+        <desc />
+        <copyright>镇江云网软件技术有限公司 2005.8</copyright>
+        <version>2.1</version>
+        <internetFlag>no</internetFlag>
+        <!--secure，是否使用安全连接-->
+        <isRequestSupportCN>false</isRequestSupportCN>
+        <useCache>true</useCache>
+        <title />
+    </Application>
+    <DataBase>
+        <db>
+            <name>oa</name>
+            <Default>true</Default>
+            <UsePool>false</UsePool>
+            <PoolName />
+            <DBDriver>org.logicalcobwebs.proxool.ProxoolDriver</DBDriver>
+            <ConnStr>proxool.oa</ConnStr>
+        </db>
+        <db>
+            <name>mzj</name>
+            <Default>false</Default>
+            <UsePool>false</UsePool>
+            <PoolName />
+            <DBDriver>org.logicalcobwebs.proxool.ProxoolDriver</DBDriver>
+            <ConnStr>proxool.mzj</ConnStr>
+        </db>
+    </DataBase>
+    <scheduler>
+        <className>com.redmoon.forum.ForumSchedulerUnit</className>
+        <className>com.redmoon.oa.OASchedulerUnit</className>
+    </scheduler>
+    <i18n>
+        <lang>zh</lang>
+        <country>cn</country>
+        <timeZone>GMT+08:00</timeZone>
+        <isSpecified>false</isSpecified>
+    </i18n>
+</config>
+

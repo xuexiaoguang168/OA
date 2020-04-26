@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="gb2312"?>
+<config>
+    <forum>
+        <loginFailInterval desc="登录出错时间间隔(秒)">30</loginFailInterval>
+        <loginFailCount desc="登录出错时间间隔内尝试登录最大出错次数">3</loginFailCount>
+        <loginFailDelay desc="登录出错超过最大出错次数时被延时的时间(秒)">60</loginFailDelay>
+        <favoriateNum desc="收藏夹最大贴子数">10</favoriateNum>
+        <refreshOnlineInterval desc="刷新在线用户时间间隔（分钟）">5</refreshOnlineInterval>
+        <refreshOnlineExpire desc="在线用户被删除的超时时间（分钟）">40</refreshOnlineExpire>
+        <bailFeeDay desc="保释时需缴纳的保释金/天">20</bailFeeDay>
+        <addMsgInterval desc="发贴间隔时间(毫秒)">2000</addMsgInterval>
+        <msgTitleLengthMin desc="贴子标题最短字数">1</msgTitleLengthMin>
+        <msgTitleLengthMax desc="贴子标题最长字数">100</msgTitleLengthMax>
+        <msgLengthMin desc="贴子内容最短长度">10</msgLengthMin>
+        <msgLengthMax desc="贴子内容最大长度">15000</msgLengthMax>
+        <maxAttachmentCount desc="贴子最大附件数">5</maxAttachmentCount>
+        <maxAttachmentSize desc="贴子最大附件尺寸（K）">1500</maxAttachmentSize>
+        <maxAllFileSize desc="贴子最大所有上传文件尺寸（K）">1500</maxAllFileSize>
+        <email_notify desc="是否启用Email回复提醒">true</email_notify>
+        <message_sender desc="短消息群发时的发送者名称">系统管理员</message_sender>
+        <message_expire_day desc="用户短消息过期的天数">365</message_expire_day>
+        <interval_clear_message desc="删除用户短消息超出最大条数的时间间隔(小时)">24</interval_clear_message>
+        <sign_ubb desc="签名档是否允许UBB代码">true</sign_ubb>
+        <sign_length desc="签名档字符长度">100</sign_length>
+        <ext desc="上传文件的合法扩展名">jpg,jpeg,gif,zip,rar,doc,rm,avi,bmp,swf,png,mp3,wmv,rmvb,wma,xls,txt,wps,css,htm,html</ext>
+        <addUseValidateCode desc="发贴时使用验证码">false</addUseValidateCode>
+        <loginUseValidateCode desc="登录时使用验证码">true</loginUseValidateCode>
+        <photo_max_size desc="用户头像大小(K)">100</photo_max_size>
+        <waterMarkImg desc="是否使用水印">true</waterMarkImg>
+        <waterMarkPos desc="水印位置">2</waterMarkPos>
+        <waterMarkTransparence desc="水印透明度，0表示完全透明，100表示不透明">50</waterMarkTransparence>
+        <isShowQQ desc="是否显示QQ小秘书聊天图标">false</isShowQQ>
+        <checkReferer desc="防止图片盗链">true</checkReferer>
+        <shortMsgTitleLengthMin desc="短消息标题最短字数">1</shortMsgTitleLengthMin>
+        <shortMsgTitleLengthMax desc="短消息标题最长字数">50</shortMsgTitleLengthMax>
+        <shortMsgContentLengthMin desc="短消息内容最短字数">1</shortMsgContentLengthMin>
+        <shortMsgContentLengthMax desc="短消息内容最长字数">100</shortMsgContentLengthMax>
+        <canUserAddTopic desc="默认新用户能否发贴">true</canUserAddTopic>
+        <canUserReplyTopic desc="默认新用户能否回贴">true</canUserReplyTopic>
+        <canUserVote desc="默认新用户能否投票">true</canUserVote>
+        <canUserSearch desc="默认新用户能否搜索">true</canUserSearch>
+        <canUserUploadAttach desc="默认新用户能否上传附件">true</canUserUploadAttach>
+        <canUserDownloadAttach desc="默认新用户能否下载附件">true</canUserDownloadAttach>
+        <maxAttachDayCount desc="默认新用户每天能上传的附件个数">50</maxAttachDayCount>
+        <userLevel desc="默认等级设置">levelCredit</userLevel>
+        <isListTopicTree desc="列表页采用树形显示">false</isListTopicTree>
+        <isHtmlPage desc="是否使用伪静态页面">false</isHtmlPage>
+        <hitUpdateCount desc="更新数据库时点击率增长的数目">5</hitUpdateCount>
+        <canUserSetReplyExperiencePointSee desc="用户是否可以设定回复、信用、经验、付费可见">true</canUserSetReplyExperiencePointSee>
+        <key desc="加密时的键值，用于口令等的加密，不得超过24个字符">cloudwebcloudwebcloudweb</key>
+        <showFlowerEgg desc="显示用户所得的鲜花鸡蛋数">true</showFlowerEgg>
+    </forum>
+</config>
+

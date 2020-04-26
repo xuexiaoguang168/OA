@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+<listener> 
+	<listener-class> 
+		com.redmoon.oa.SessionListener
+	</listener-class>
+</listener>
+
+<servlet>
+   <servlet-name>log4j-init</servlet-name>  
+   <servlet-class>cn.js.fan.util.Log4jInit</servlet-class> 
+   <init-param> 
+      <param-name>log4j</param-name>
+      <param-value>WEB-INF/log4j.properties</param-value>
+   </init-param>
+   <load-on-startup>1</load-on-startup> 
+</servlet> 
+
+<servlet> 
+   	<servlet-name>DisplayChart</servlet-name> 
+	<servlet-class>org.jfree.chart.servlet.DisplayChart</servlet-class> 
+</servlet> 
+
+<servlet-mapping> 
+    <servlet-name>DisplayChart</servlet-name> 
+    <url-pattern>/servlet/DisplayChart</url-pattern> 
+</servlet-mapping> 
+
+<filter> 
+<filter-name>downloadfilter</filter-name>    
+<filter-class>com.redmoon.oa.DownloadFilter</filter-class>
+</filter>
+
+<filter-mapping>    
+<filter-name>downloadfilter</filter-name>    
+<url-pattern>/bak/*</url-pattern>
+</filter-mapping>
+
+    <servlet>
+      <servlet-name>
+          chatservice
+      </servlet-name>
+      <servlet-class>
+          com.redmoon.chat.ChatService
+      </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>chatservice</servlet-name>
+        <url-pattern>/chat/chatservice</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+            <servlet-name>dwr-invoker</servlet-name>
+            <display-name>DWR Servlet</display-name>        
+            <description>Direct Web Remoter Servlet</description>        
+            <servlet-class>uk.ltd.getahead.dwr.DWRServlet</servlet-class>        
+            <init-param>            
+				<param-name>debug</param-name>            
+				<param-value>true</param-value>        
+            </init-param>    
+    </servlet>    
+    <servlet-mapping>        
+    	<servlet-name>dwr-invoker</servlet-name>        
+    	<url-pattern>/dwr/*</url-pattern>    
+    </servlet-mapping>
+
+<!--Á¬½Ó³Ø
+-->
+	<display-name>proxool</display-name>
+	<servlet>
+	  <servlet-name>ServletConfigurator</servlet-name>
+	  <servlet-class>org.logicalcobwebs.proxool.configuration.ServletConfigurator</servlet-class>
+	  <init-param>
+		<param-name>xmlFile</param-name>
+		<param-value>WEB-INF/proxool.xml</param-value>
+	  </init-param>
+     	  <load-on-startup>1</load-on-startup>
+	</servlet> 
+
+	<servlet>
+	  <servlet-name>proxool_Admin</servlet-name>
+	  <servlet-class>org.logicalcobwebs.proxool.admin.servlet.AdminServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+	  <servlet-name>proxool_Admin</servlet-name>
+	  <url-pattern>/proxoolAdmin</url-pattern>
+	</servlet-mapping> 
+	
+	<display-name>App Init</display-name>
+	<servlet>
+	  <servlet-name>AppInit</servlet-name>
+	  <servlet-class>com.redmoon.oa.AppInit</servlet-class>
+   	  <load-on-startup>2</load-on-startup>
+	</servlet> 	
+</web-app>

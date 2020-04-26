@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=utf-8"><LINK 
+href="img_files/pop.css" type=text/css rel=stylesheet>
+<STYLE type=text/css>
+BODY {
+	FONT: 9pt "宋体", Verdana, Arial, Helvetica, sans-serif
+}
+A {
+	FONT: 9pt "宋体", Verdana, Arial, Helvetica, sans-serif
+}
+TABLE {
+	FONT: 9pt "宋体", Verdana, Arial, Helvetica, sans-serif
+}
+DIV {
+	FONT: 9pt "宋体", Verdana, Arial, Helvetica, sans-serif
+}
+SPAN {
+	FONT: 9pt "宋体", Verdana, Arial, Helvetica, sans-serif
+}
+TD {
+	FONT: 9pt "宋体", Verdana, Arial, Helvetica, sans-serif
+}
+TH {
+	FONT: 9pt "宋体", Verdana, Arial, Helvetica, sans-serif
+}
+INPUT {
+	FONT: 9pt "宋体", Verdana, Arial, Helvetica, sans-serif
+}
+SELECT {
+	FONT: 9pt "宋体", Verdana, Arial, Helvetica, sans-serif
+}
+BODY {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px
+}
+.STYLE1 {color: #FFFFFF}
+</STYLE>
+
+<SCRIPT language=JavaScript>
+function findObj(theObj, theDoc)
+{
+  var p, i, foundObj;
+  
+  if(!theDoc) theDoc = document;
+  if( (p = theObj.indexOf("?")) > 0 && parent.frames.length)
+  {
+    theDoc = parent.frames[theObj.substring(p+1)].document;
+    theObj = theObj.substring(0,p);
+  }
+  if(!(foundObj = theDoc[theObj]) && theDoc.all) foundObj = theDoc.all[theObj];
+  for (i=0; !foundObj && i < theDoc.forms.length; i++) 
+    foundObj = theDoc.forms[i][theObj];
+  for(i=0; !foundObj && theDoc.layers && i < theDoc.layers.length; i++) 
+    foundObj = findObj(theObj,theDoc.layers[i].document);
+  if(!foundObj && document.getElementById) foundObj = document.getElementById(theObj);
+  
+  return foundObj;
+}
+
+var parentWin;
+var ctlType;
+var mode;
+
+function ok() {
+	if (ctlName.value=="") {
+		alert("请填写标识！");
+		return;
+	}
+	if (ctlTitle.value=="") {
+		alert("请填写名称！");
+		return;
+	}
+
+	var opts = "";
+	var v;
+	for (var i=0; i<20; i++) {
+		v = findObj("option" + i).value;
+		if (v=="")
+			continue;
+		if (v==defaultValue.value)
+			opts += '<option value="' + v + '" selected>' + v + '</option>';
+		else
+			opts += '<option value="' + v + '">' + v + '</option>';
+	}
+	if (mode=="create")
+		parentWin.CreateSelectCtl(ctlType, ctlName.value, ctlTitle.value, opts);
+	else {
+		if (editObj.size==0 || editObj.size==1)
+			ctlType = "select";
+		else
+			ctlType = "list";
+		editObj.outerHTML = "";
+		parentWin.CreateSelectCtl(ctlType, ctlName.value, ctlTitle.value, opts);
+	}
+		
+	window.close();
+}
+
+function window_onload() {
+	parentWin =	dialogArguments[0];
+	mode = dialogArguments[1];
+	if (mode=="create")
+		ctlType = dialogArguments[2];
+	else {
+		editObj = dialogArguments[2];
+		ctlName.value = editObj.name;
+		ctlTitle.value = editObj.title;
+		defaultValue.value = editObj.value;
+		
+		var opts = editObj.options;
+		for (var i=0; i<opts.length; i++) {
+			findObj("option" + i).value = opts.item(i).value;
+		}
+	}
+}
+</SCRIPT>
+
+<META content="MSHTML 6.00.3790.373" name=GENERATOR></HEAD>
+<BODY bgColor=menu onLoad="window_onload()">
+<TABLE width="293" border=0 align=center cellPadding=0 cellSpacing=0>
+  <TBODY>
+  
+  <TR>
+    <TD height="28" align=center>控件标识：</TD>
+    <TD height="28" align=left><input name="ctlName" type="text" style="width: 150px; height:22px" maxlength="30">
+      <input name="submit2" type=button id=submit onClick=ok() value=确定></TD>
+  </TR>
+  <TR>
+<TD width="86" height="28" align=center>控件名称：</TD>
+<TD width="207" height="28" align=left><input type="text" name="ctlTitle" style="width: 150px; height:22px"></TD>
+  </TR>
+  
+  <TR>
+    <TD width="86" height="28" align=center>默&nbsp;认&nbsp;值：</TD>
+    <TD width="207" height="28" align=left><input type="text" name="defaultValue" style="width: 150px; height:22px"></TD>
+  </TR>
+  
+  <TR>
+    <TD height="28" colspan="2" align=center><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="30%" height="28" align="center" bgcolor="#999999"><span class="STYLE1">序号</span></td>
+        <td width="70%" bgcolor="#999999"><span class="STYLE1">菜单项目</span></td>
+      </tr>
+	  <script>
+	  for (var k=0; k<20; k++) {
+      	document.write("<tr>");
+        document.write('<td height="28" align="center">' + k + '</td>');
+        document.write('<td><input type="text" name="option' + k +'" style="width: 200px; height:22px"></td>');
+        document.write('</tr>');
+	  }
+	  </script>
+
+      
+    </table></TD>
+  </TR>
+</TBODY></TABLE>
+</BODY></HTML>

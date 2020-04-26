@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="gb2312"?>
+<config>
+	<module code="contract">
+		<attachmentPath>upfile/contract</attachmentPath>
+		<checker></checker>
+		<view>
+			<list>contract/contract_list.jsp</list>
+		</view>
+	</module>
+	<module code="sales_customer">
+		<attachmentPath>upfile/sales</attachmentPath>
+		<checker>com.redmoon.oa.visual.module.CustomerChecker</checker>
+		<view>
+			<list>sales/customer_list.jsp</list>
+		</view>
+	</module>
+	<module code="sales_linkman">
+		<attachmentPath>upfile/sales</attachmentPath>
+		<checker>com.redmoon.oa.visual.module.LinkmanChecker</checker>
+		<view>
+			<list>sales/linkman_list.jsp</list>
+		</view>
+	</module>
+	<module code="sales_customer_service">
+		<attachmentPath>upfile/sales</attachmentPath>
+		<checker></checker>
+		<view>
+			<list>sales/customer_service_list.jsp</list>
+		</view>
+	</module>
+	<module code="sales_provider_info">
+		<attachmentPath>upfile/sales</attachmentPath>
+		<checker></checker>
+		<view>
+			<list>sales/provider_info_list.jsp</list>
+		</view>
+	</module>
+	<module code="sales_provider_name">
+		<attachmentPath>upfile/sales</attachmentPath>
+		<checker></checker>
+		<view>
+			<list>sales/provider_contact_list.jsp</list>
+		</view>
+	</module>
+	<module code="sales_product_info">
+		<attachmentPath>upfile/sales</attachmentPath>
+		<checker></checker>
+		<view>
+			<list>sales/product_list.jsp</list>
+		</view>
+	</module>
+	<module code="sales_product_service">
+		<attachmentPath>upfile/sales</attachmentPath>
+		<checker></checker>
+		<view>
+			<list>sales/product_service_list.jsp</list>
+		</view>
+	</module>
+	<module code="sales_contract">
+		<attachmentPath>upfile/sales</attachmentPath>
+		<checker></checker>
+		<view>
+			<list>sales/contract_list.jsp</list>
+		</view>
+	</module>
+	<module code="sales_product_sell">
+		<attachmentPath>upfile/sales</attachmentPath>
+		<checker></checker>
+		<view>
+			<list>sales/product_sell_list.jsp</list>
+		</view>
+	</module>
+	<module code="sales_product_service_sell">
+		<attachmentPath>upfile/sales</attachmentPath>
+		<checker></checker>
+		<view>
+			<list>sales/product_service_sell_list.jsp</list>
+		</view>
+	</module>
+</config>

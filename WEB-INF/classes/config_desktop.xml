@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+		<module code="fileark">
+			<name>文件柜</name>
+			<isSystem></isSystem>
+			<pageList>cms/document_list_m.jsp?dir_code=</pageList>
+			<pageShow>doc_show_notice.jsp</pageShow>
+			<className>cn.js.fan.module.cms.Document</className>
+			<type>list</type><!--list or document-->
+			<icon></icon><!--置于标题栏的图标-->
+		</module>
+		<module code="plan">
+			<name>日程安排</name>
+			<isSystem></isSystem>
+			<pageList>plan.jsp</pageList>
+			<pageShow>plan_show.jsp</pageShow>
+			<className>com.redmoon.oa.person.PlanDb</className>
+			<type>list</type><!--list or document-->
+			<icon></icon><!--置于标题栏的图标-->
+		</module>
+		<module code="flow">
+			<name>工作流</name>
+			<isSystem></isSystem>
+			<pageList>flow_list_doingorreturn.jsp</pageList>
+			<pageShow>flow_dispose.jsp?myActionId=</pageShow>
+			<className>com.redmoon.oa.flow.MyActionDb</className>
+			<type>list</type><!--list or document-->
+			<icon></icon><!--置于标题栏的图标-->
+		</module>
+		<module code="task">
+			<name>任务督办</name>
+			<isSystem></isSystem>
+			<pageList>task.jsp</pageList>
+			<pageShow>task_show.jsp</pageShow>
+			<className>com.redmoon.oa.task.TaskDb</className>
+			<type>list</type><!--list or document-->
+			<icon></icon><!--置于标题栏的图标-->
+		</module>		
+		<module code="msg">
+			<name>短消息</name>
+			<isSystem></isSystem>
+			<pageList>message_oa/message.jsp</pageList>
+			<pageShow>message_oa/showmsg.jsp</pageShow>
+			<className>com.redmoon.oa.message.MessageDb</className>
+			<type>list</type><!--list or document-->
+			<icon></icon><!--置于标题栏的图标-->
+		</module>
+		<module code="forum">
+			<name>论坛新贴</name>
+			<isSystem></isSystem>
+			<pageList>jump.jsp?fromWhere=oa&amp;toWhere=forum</pageList>
+			<pageShow>jump.jsp</pageShow>
+			<className>com.redmoon.oa.ui.desktop.ForumDesktopUnit</className>
+			<type>list</type><!--list or document-->
+			<icon></icon><!--置于标题栏的图标-->
+		</module>
+		<module code="blog">
+			<name>博客新贴</name>
+			<isSystem></isSystem>
+			<pageList>jump.jsp?fromWhere=oa&amp;toWhere=blog</pageList>
+			<pageShow>jump.jsp</pageShow>
+			<className>com.redmoon.oa.ui.desktop.BlogDesktopUnit</className>
+			<type>list</type><!--list or document-->
+			<icon></icon><!--置于标题栏的图标-->
+		</module>				
+		<module code="document">
+			<name>文章</name>
+			<isSystem></isSystem>
+			<pageList>doc_show_notice.jsp?id=</pageList>
+			<pageShow>doc_show_notice.jsp?id=</pageShow>
+			<className>com.redmoon.oa.ui.desktop.DocumentDesktopUnit</className>
+			<type>document</type><!--list or document-->
+			<icon></icon><!--置于标题栏的图标-->
+		</module>			
+</config>

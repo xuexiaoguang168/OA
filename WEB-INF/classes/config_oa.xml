@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="gb2312"?>
+<env>
+    <oa>
+        <enterprise desc="系统名称">云网OA</enterprise>
+        <version desc="版本">2.0</version>
+        <defaultroom desc="默认房间">办公室</defaultroom>
+        <canUserSeeDesignerWhenDispose desc="用户处理流程时能否看到流程设计器">true</canUserSeeDesignerWhenDispose>
+        <canUserModifyFlow desc="用户能否修改流程(该功能暂不支持)">false</canUserModifyFlow>
+        <file_folder desc="文件柜路径">upfile/file_folder</file_folder>
+        <file_flow desc="流程文档路径">upfile/file_flow</file_flow>
+        <file_task desc="任务文档路径">upfile/file_task</file_task>
+        <file_netdisk desc="网络硬盘路径">upfile/file_netdisk</file_netdisk>
+        <file_message desc="短消息文件路径">upfile/file_message</file_message>
+        <file_workplan desc="工作计划文件路径">upfile/file_workplan</file_workplan>
+        <file_archive desc="人事管理文件路径">upfile/file_archive</file_archive>
+        <!--<file_email desc="邮件文件路径">upfile/file_email</file_email>-->
+        <refresh_talk desc="讨论刷新间隔时间(毫秒)">3000</refresh_talk>
+        <refresh_userlist desc="用户列表刷新间隔时间(秒)">6</refresh_userlist>
+        <refresh_message desc="短消息刷新间隔时间(秒)">10</refresh_message>
+        <morningbegin desc="上午上班时间">9:00</morningbegin>
+        <morningend desc="上午下班时间">12:00</morningend>
+        <afternoonbegin desc="下午上班时间">14:00</afternoonbegin>
+        <afternoonend desc="下午下班时间">18:00</afternoonend>
+        <latevalue desc="迟到时间">10</latevalue>
+        <netdisk_space_allowed desc="默认网络硬盘空间(10M)">10240000</netdisk_space_allowed>
+        <interval_remind_user_plan desc="用户日程提醒消息间隔(毫秒)">300000</interval_remind_user_plan>
+        <!--用户日程提醒间隔 5分钟-->
+        <interval_clear_proxy_expired desc="清除用户代理到期间隔(毫秒)">300000</interval_clear_proxy_expired>
+        <interval_flow_hurry desc="流程催办消息间隔(毫秒)">1800000</interval_flow_hurry>
+        <interval_clear_message desc="删除用户短消息超出最大条数的时间间隔(毫秒)">86400000</interval_clear_message>
+        <!--1小时-->
+        <message_to_max_user desc="短消息群发的默认最大用户数">5</message_to_max_user>
+        <message_user_max_count desc="用户短消息能保留的最大条数">800</message_user_max_count>
+        <netdisk_ext desc="网络硬盘上传文件的合法扩展名">exe,jpg,jpeg,gif,zip,rar,doc,rm,avi,bmp,swf,png,mp3,wmv,rmvb,wma,xls,txt,wps,css,htm,html</netdisk_ext>
+        <!--<mailserver desc="邮件服务器">ttoactxy</mailserver>
+        <pop3_port desc="pop3 端口">111</pop3_port>
+        <smtp_port desc="smtp 端口">26</smtp_port>-->
+        <!--<restrictpcinoffice desc="限制从办公电脑登录">no</restrictpcinoffice>-->
+        <shortMsgTitleLengthMin desc="短消息标题最短字数">1</shortMsgTitleLengthMin>
+        <shortMsgTitleLengthMax desc="短消息标题最长字数">50</shortMsgTitleLengthMax>
+        <shortMsgContentLengthMin desc="短消息内容最短字数">1</shortMsgContentLengthMin>
+        <shortMsgContentLengthMax desc="短消息内容最长字数">100</shortMsgContentLengthMax>
+        <shortMsgFileSize desc="短消息附件大小(K)">2048000</shortMsgFileSize>
+        <shortMsgFileExt desc="短消息上传文件的合法扩展名">exe,jpg,jpeg,gif,zip,rar,doc,rm,avi,bmp,swf,png,mp3,wmv,rmvb,wma,xls,txt,wps,css,htm,html</shortMsgFileExt>
+    </oa>
+</env>
+

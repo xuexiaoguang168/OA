@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>底部</title>
+<link href="css.css" rel="stylesheet" type="text/css">
+<script language="JavaScript">
+<!--
+function loadOfficeUI(url)
+{
+	window.top.setUI("office");
+	window.top.mainFrame.location.href = url
+}
+//-->
+</script>
+<style type="text/css">
+<!--
+#layer_lb {
+	position:absolute;
+	width:21px;
+	height:18px;
+	z-index:1;
+	left: 806px;
+	top: 6px;
+}
+-->
+</style>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="796" height="100%" border="0" cellpadding="0" cellspacing="0" background="">
+  <tr>
+    <td> <img src="images/pic-bot.jpg" border="0" usemap="#Map">
+    <div id="layer_lb" style="display:none"><img src="images/lb.gif" onClick="window.top.setUI('chat')"></div> </td>
+  </tr>
+</table>
+<map name="Map">
+  <area shape="rect" coords="251,5,307,23" href="javascript:window.top.setUI('chat')">
+  <area shape="rect" coords="180,4,229,22" href="javascript:window.top.setUI('office')">
+  <area shape="rect" coords="326,6,380,23" href="jump.jsp?fromWhere=oa&toWhere=forum" target="_blank">
+  <area shape="rect" coords="706,6,759,22" href="javascript:loadOfficeUI('exit_oa.jsp')">
+  <area shape="rect" coords="476,6,532,23" href="javascript:window.top.setTreeMenu()">
+  <area shape="rect" coords="553,6,608,22" href="javascript:window.top.setOnline()">
+  <area shape="rect" coords="403,5,454,21" href="javascript:loadOfficeUI('mail/mail_frame.jsp')">
+  <area shape="rect" coords="633,6,687,22" href="javascript:loadOfficeUI('plan.jsp')">
+</map>
+</body>
+</html>

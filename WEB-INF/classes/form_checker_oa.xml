@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <form code="scheduler_add" res="res.com.redmoon.oa.kernel.JobUnitDb" onErrorExit="false">
+			<rules>
+				<rule>int, 			id, 				编号,			auto_inc=com.redmoon.oa.db.SequenceManager$39</rule>
+				<rule>String, 		cron,				时间规则,			not</rule>
+				<rule>String, 		data_map,			附加数据,			empty</rule>
+				<rule>String, 		job_name,			任务名称,			empty</rule>
+				<rule>String, 		job_class,			任务的类,			not</rule>
+				<rule>String, 		month_day,			月份内的日期,			empty</rule>
+				<rule>String, 		user_name,			用户名,			empty</rule>
+			</rules>
+			<unionRules>
+			</unionRules>
+    </form>
+    <form code="scheduler_edit" res="res.com.redmoon.oa.kernel.JobUnitDb" onErrorExit="false">
+			<rules>
+				<rule>int, 			id, 				编号,			not</rule>
+				<rule>String, 		cron,				时间规则,			not</rule>
+				<rule>String, 		data_map,			附加数据,			empty</rule>
+				<rule>String, 		job_name,			任务名称,			empty</rule>
+				<rule>String, 		job_class,			任务的类,			not</rule>
+				<rule>String, 		month_day,			月份内的日期,			empty</rule>
+				<rule>String, 		user_name,			用户名,			empty</rule>				
+			</rules>
+			<unionRules>
+			</unionRules>
+    </form>	
+</root>

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+</head>
+<SCRIPT language=javascript>
+<!--
+function MM_controlSound(sndAction,_sndObj) { //v2.0
+	var sndObj = eval( _sndObj );
+	if (sndObj != null) {
+		if (sndAction=='stop') {
+			sndObj.stop();
+		} else {
+			if (navigator.appName == 'Netscape' ) {
+					sndObj.play();
+			} else {
+				if (document.MM_WMP_DETECTED == null) {
+					document.MM_WMP_DETECTED = false;
+					var i;
+					for( i in sndObj )
+						if ( i == "ActiveMovie" ) {
+							document.MM_WMP_DETECTED = true;
+							break; 
+						}
+				}
+				if (document.MM_WMP_DETECTED)
+					sndObj.play();
+				else if ( sndObj.FileName )
+					sndObj.run();
+			}
+		}
+	}
+}
+//-->
+</SCRIPT>
+<body>
+
+<div id="Layer2" ><a href="#" onClick="MM_controlSound('play','document.player','../sounds/msg.wav')" target="_self">播放背景音乐</a></div>
+<div id="Layer3" ><a href="#" onClick="MM_controlSound('stop','document.player','../sounds/msg.wav')" target="_self">关闭背景音乐</a></div>
+<EMBED NAME='player' SRC='../sounds/msg.wav' LOOP=false AUTOSTART=false MASTERSOUND HIDDEN=true WIDTH=100 HEIGHT=50>
+</EMBED> 
+</div>
+</body>
+</html>

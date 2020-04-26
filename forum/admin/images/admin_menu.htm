@@ -1,0 +1,353 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>菜单</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<STYLE type=text/css>BODY {
+	BACKGROUND: #799ae1; MARGIN: 0px; FONT: 9pt 宋体
+}
+TABLE {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+TD {
+	FONT: 12px 宋体
+}
+IMG {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; VERTICAL-ALIGN: bottom; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+A {
+	FONT: 12px 宋体; COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #428eff; TEXT-DECORATION: underline overline
+}
+.sec_menu {
+	BORDER-RIGHT: white 1px solid; BACKGROUND: #d6dff7; OVERFLOW: hidden; BORDER-LEFT: white 1px solid; BORDER-BOTTOM: white 1px solid
+}
+.menu_title SPAN {
+	FONT-WEIGHT: bold; LEFT: 8px; COLOR: #215dc6; POSITION: relative; TOP: 2px; CURSOR: hand
+}
+.menu_title2 SPAN {
+	FONT-WEIGHT: bold; LEFT: 8px; COLOR: #428eff; POSITION: relative; TOP: 2px; CURSOR: hand
+}
+</STYLE>
+
+<SCRIPT language=javascript>
+function opensearch(URL)
+  { window.open(URL,"opensearch","toolbar=no,location=no,directories=no,status=yes,menubar=no,scrollbars=no,resizable=no,copyhistory=no,width=300,height=142,left=100,top=100");
+  }
+</SCRIPT>
+<!--菜单控制脚本-->
+<SCRIPT language=javascript1.2>
+function showsubmenu(sid)
+{
+whichEl = eval("submenu" + sid);
+if (whichEl.style.display == "none")
+{
+eval("submenu" + sid + ".style.display=\"\";");
+}
+else
+{
+eval("submenu" + sid + ".style.display=\"none\";");
+}
+}
+</SCRIPT>
+<!--注销脚本-->
+<SCRIPT type=text/javascript>
+<!--
+function log_out()
+{
+	ht = document.getElementsByTagName("html");
+	ht[0].style.filter = "progid:DXImageTransform.Microsoft.BasicImage(grayscale=1)";
+	if (confirm('你是否确认注销？'))
+	{
+		return true;
+	}
+	else
+	{
+		ht[0].style.filter = "";
+		return false;
+	}
+}
+//-->
+</SCRIPT>
+
+<META content="MSHTML 6.00.3790.259" name=GENERATOR></HEAD>
+<BODY leftMargin=0 topMargin=0 marginwidth="0" marginheight="0">
+<TABLE cellSpacing=0 cellPadding=0 width="100%" align=left border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top>
+      <TABLE cellSpacing=0 cellPadding=0 width=158 align=center>
+        <TBODY>
+        <TR>
+          <TD vAlign=bottom height=42><IMG height=38 
+            src="admin_menu_files/title.gif" width=158> </TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 width=158 align=center>
+        <TBODY>
+        <TR>
+          <TD class=menu_title onmouseover="this.className='menu_title2';" 
+          onmouseout="this.className='menu_title';" 
+          background=admin_menu_files/title_bg_quit.gif height=25><SPAN><A 
+            href="http://localhost/home/admin/admin_help.asp" 
+            target=main><B>管理首页</B></A> | <A onclick="return log_out()" 
+            href="http://localhost/home/admin/admin_check.asp?action=logout" 
+            target=_top><B>退出登陆</B></A></SPAN> </TD></TR></TBODY></TABLE>&nbsp; 
+      <TABLE cellSpacing=0 cellPadding=0 width=158 align=center>
+        <TBODY>
+        <TR>
+          <TD class=menu_title id=menuTitle1 
+          onmouseover="this.className='menu_title2';" onclick=showsubmenu(0) 
+          onmouseout="this.className='menu_title';" 
+          background=admin_menu_files/admin_left_1.gif 
+            height=25><SPAN>管理设置</SPAN> </TD></TR>
+        <TR>
+          <TD id=submenu0 style="DISPLAY: none">
+            <DIV class=sec_menu style="WIDTH: 158px">
+            <TABLE cellSpacing=0 cellPadding=0 width=135 align=center>
+              <TBODY>
+              <TR>
+                <TD height=20><A 
+                  href="http://localhost/home/admin/admin_siteinfo.asp" 
+                  target=main>网站配置信息</A></TD></TR>
+              <TR>
+                <TD height=20><A 
+                  href="http://localhost/home/admin/admin_chgpwd.asp" 
+                  target=main>修改管理密码</A></TD></TR>
+              <TR>
+                <TD height=20><A 
+                  href="http://localhost/home/default.asp?updatecount=true" 
+                  target=_blank>更新首页站点统计</A></TD></TR></TBODY></TABLE></DIV>
+            <DIV style="WIDTH: 158px">
+            <TABLE cellSpacing=0 cellPadding=0 width=135 align=center>
+              <TBODY>
+              <TR>
+                <TD height=20></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 width=158 align=center>
+        <TBODY>
+          <TR>
+            <TD class=menu_title id=menuTitle1 
+          onmouseover="this.className='menu_title2';" onclick=showsubmenu(7) 
+          onmouseout="this.className='menu_title';" 
+          background=admin_menu_files/admin_left_7.gif 
+            height=25><SPAN> 用户管理</SPAN> </TD>
+          </TR>
+          <TR>
+            <TD id=submenu7 style="DISPLAY: none"><DIV class=sec_menu style="WIDTH: 158px">
+                <TABLE cellSpacing=0 cellPadding=0 width=135 align=center>
+                  <TBODY>
+                    <TR>
+                      <TD height=20><A 
+                  href="http://localhost/home/admin/admin_data.asp?action=CompressData" 
+                  target=main>管理用户信息</A></TD>
+                    </TR>
+                    <TR>
+                      <TD height=20><A 
+                  href="http://localhost/home/admin/admin_data.asp?action=BackupData" 
+                  target=main>添加新的用户</A></TD>
+                    </TR>
+                  </TBODY>
+                </TABLE>
+              </DIV>
+                <DIV style="WIDTH: 158px">
+                  <TABLE cellSpacing=0 cellPadding=0 width=135 align=center>
+                    <TBODY>
+                      <TR>
+                        <TD height=20></TD>
+                      </TR>
+                    </TBODY>
+                  </TABLE>
+              </DIV></TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 width=158 align=center>
+        <TBODY>
+        <TR>
+          <TD class=menu_title id=menuTitle1 
+          onmouseover="this.className='menu_title2';" onclick=showsubmenu(8) 
+          onmouseout="this.className='menu_title';" 
+          background=admin_menu_files/admin_left_3.gif 
+            height=25><SPAN>文章管理</SPAN> </TD>
+        </TR>
+        <TR>
+          <TD id=submenu8>
+            <DIV class=sec_menu style="WIDTH: 158px">
+            <TABLE cellSpacing=0 cellPadding=0 width=135 align=center>
+              <TBODY>
+              <TR>
+                <TD height=20><A 
+                  href="http://localhost/home/admin/admin_addnews.asp" 
+                  target=main>发布文章 | 分类管理</A><A 
+                  href="http://localhost/home/admin/cat_news.asp" 
+                  target=main></A></TD>
+              </TR>
+              <TR>
+                <TD height=20><A 
+                  href="http://localhost/home/admin/admin_addnews.asp" 
+                  target=main>文章管理</A><A 
+                  href="http://localhost/home/admin/cat_news.asp" 
+                  target=main></A> | 查找</TD>
+              </TR>
+              </TBODY></TABLE>
+            </DIV>
+            <DIV style="WIDTH: 158px">
+            <TABLE cellSpacing=0 cellPadding=0 width=135 align=center>
+              <TBODY>
+              <TR>
+                <TD height=20></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 width=158 align=center>
+        <TBODY>
+          <TR>
+            <TD class=menu_title id=menuTitle1 
+          onmouseover="this.className='menu_title2';" onclick=showsubmenu(9) 
+          onmouseout="this.className='menu_title';" 
+          background=admin_menu_files/admin_left_3.gif 
+            height=25><SPAN>学术研究</SPAN> </TD>
+          </TR>
+          <TR>
+            <TD id=submenu9><DIV class=sec_menu style="WIDTH: 158px">
+                <TABLE cellSpacing=0 cellPadding=0 width=135 align=center>
+                  <TBODY>
+                    <TR>
+                      <TD height=20><A 
+                  href="http://localhost/home/admin/admin_addnews.asp" 
+                  target=main>语言学研究</A><A 
+                  href="http://localhost/home/admin/cat_news.asp" 
+                  target=main></A></TD>
+                    </TR>
+                    <TR>
+                      <TD height=20><A 
+                  href="http://localhost/home/admin/admin_addnews.asp" 
+                  target=main>中英文对比与翻译</A><A 
+                  href="http://localhost/home/admin/cat_news.asp" 
+                  target=main></A></TD>
+                    </TR>
+                    <TR>
+                      <TD height=20><A 
+                  href="http://localhost/home/admin/admin_addnews.asp" 
+                  target=main>对外汉语教学</A><A 
+                  href="http://localhost/home/admin/cat_news.asp" 
+                  target=main></A></TD>
+                    </TR>
+                  </TBODY>
+                </TABLE>
+              </DIV>
+                <DIV style="WIDTH: 158px">
+                  <TABLE cellSpacing=0 cellPadding=0 width=135 align=center>
+                    <TBODY>
+                      <TR>
+                        <TD height=20></TD>
+                      </TR>
+                    </TBODY>
+                  </TABLE>
+              </DIV></TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 width=158 align=center>
+        <TBODY>
+          <TR>
+            <TD class=menu_title id=menuTitle1 
+          onmouseover="this.className='menu_title2';" onclick=showsubmenu(1) 
+          onmouseout="this.className='menu_title';" 
+          background=admin_menu_files/admin_left_3.gif 
+            height=25><SPAN>听力教学</SPAN> </TD>
+          </TR>
+          <TR>
+            <TD id=submenu1><DIV class=sec_menu style="WIDTH: 158px">
+                <TABLE cellSpacing=0 cellPadding=0 width=135 align=center>
+                  <TBODY>
+                    <TR>
+                      <TD height=20><A 
+                  href="http://localhost/home/admin/admin_addnews.asp" 
+                  target=main>下载区</A> | <A 
+                  href="http://localhost/home/admin/cat_news.asp" 
+                  target=main>管理 | 添加</A></TD>
+                    </TR>
+                    <TR>
+                      <TD height=20><A 
+                  href="http://localhost/home/admin/admin_addnews.asp" 
+                  target=main>教学区</A> | <A 
+                  href="http://localhost/home/admin/cat_news.asp" 
+                  target=main>管理 | 添加</A></TD>
+                    </TR>
+                    <TR>
+                      <TD height=20><A 
+                  href="http://localhost/home/admin/admin_addnews.asp" 
+                  target=main>影视区</A> | <A 
+                  href="http://localhost/home/admin/cat_news.asp" 
+                  target=main>管理 | 添加</A></TD>
+                    </TR>
+                  </TBODY>
+                </TABLE>
+              </DIV>
+                <DIV style="WIDTH: 158px">
+                  <TABLE cellSpacing=0 cellPadding=0 width=135 align=center>
+                    <TBODY>
+                      <TR>
+                        <TD height=20></TD>
+                      </TR>
+                    </TBODY>
+                  </TABLE>
+              </DIV></TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      <!-- 文章教程--><!--摄影管理--><!--数据库管理及空间管理-->
+      <TABLE cellSpacing=0 cellPadding=0 width=158 align=center>
+        <TBODY>
+        <TR>
+          <TD class=menu_title id=menuTitle1 
+          onmouseover="this.className='menu_title2';" onclick=showsubmenu(6) 
+          onmouseout="this.className='menu_title';" 
+          background=admin_menu_files/admin_left_7.gif 
+            height=25><SPAN>数据库管理</SPAN> </TD></TR>
+        <TR>
+          <TD id=submenu6 style="DISPLAY: none">
+            <DIV class=sec_menu style="WIDTH: 158px">
+            <TABLE cellSpacing=0 cellPadding=0 width=135 align=center>
+              <TBODY>
+              <TR>
+                <TD height=20><A 
+                  href="http://localhost/home/admin/admin_data.asp?action=CompressData" 
+                  target=main>压缩数据库</A></TD></TR>
+              <TR>
+                <TD height=20><A 
+                  href="http://localhost/home/admin/admin_data.asp?action=BackupData" 
+                  target=main>备份数据库</A></TD></TR>
+              <TR>
+                <TD height=20><A 
+                  href="http://localhost/home/admin/admin_data.asp?action=RestoreData" 
+                  target=main>恢复数据库</A></TD></TR>
+              <TR>
+                <TD height=20><A 
+                  href="http://localhost/home/admin/admin_data.asp?action=SpaceSize" 
+                  target=main>空间占用情况</A></TD></TR></TBODY></TABLE></DIV>
+            <DIV style="WIDTH: 158px">
+            <TABLE cellSpacing=0 cellPadding=0 width=135 align=center>
+              <TBODY>
+              <TR>
+                <TD height=20></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 width=158 align=center>
+        <TBODY>
+        <TR>
+          <TD class=menu_title id=menuTitle1 
+          onmouseover="this.className='menu_title2';" onclick=showsubmenu(4) 
+          onmouseout="this.className='menu_title';" 
+          background=admin_menu_files/admin_left_9.gif 
+            height=25><SPAN>关于信息</SPAN> </TD></TR>
+        <TR>
+          <TD id=submenu4 style="DISPLAY: none">
+            <DIV class=sec_menu style="WIDTH: 158px">
+            <TABLE cellSpacing=0 cellPadding=0 width=135 align=center>
+              <TBODY>
+              <TR>
+                <TD>
+                XXXs
+                </TD></TR></TBODY></TABLE></DIV><!--
+            <DIV style="WIDTH: 158px">
+            <TABLE cellSpacing=0 cellPadding=0 width=135 align=center>
+              <TBODY>
+              <TR>
+                <TD 
+      height=20></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>&nbsp; 
+--></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></BODY></HTML>

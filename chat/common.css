@@ -1,0 +1,104 @@
+.p9
+{
+    FONT-SIZE: 9pt
+}
+.whiteshadow
+{
+    FILTER: DropShadow(Color=gray,offX=1,offY=1,Positive=true)
+}
+A.mainA
+{
+	color: black;
+}
+A.mainA:visited
+{
+	color: black;
+}
+A.mainA:hover
+{
+	color: darkgreen;
+}
+A.left
+{
+	color: white;
+}
+A.left:link
+{
+	color: white;
+}
+A.left:hover
+{
+	color: yellow;
+}
+A.left:visited
+{
+	color: white;
+}
+.singleboarder
+{
+    BORDER-BOTTOM: #4a3163 1px solid;
+    BORDER-LEFT: #4a3163 1px solid;
+    BORDER-RIGHT: #4a3163 1px solid;
+    BORDER-TOP: #4a3163 1px solid;
+    FONT-SIZE: 9pt
+}
+TD {
+	TABLE-LAYOUT: fixed; FONT-SIZE: 9pt; WORD-BREAK: break-all; FONT-FAMILY: 宋体
+}
+P {
+	TABLE-LAYOUT: fixed; FONT-SIZE: 12px; WORD-BREAK: break-all; FONT-FAMILY: 宋体
+}
+INPUT {
+	TABLE-LAYOUT: fixed; FONT-SIZE: 12px; WORD-BREAK: break-all; FONT-FAMILY: 宋体
+}
+FONT {
+	TABLE-LAYOUT: fixed; FONT-SIZE: 12px; WORD-BREAK: break-all; FONT-FAMILY: 宋体
+}
+SELECT {
+	TABLE-LAYOUT: fixed; FONT-SIZE: 12px; WORD-BREAK: break-all; FONT-FAMILY: 宋体
+}
+OPTION {
+	TABLE-LAYOUT: fixed; FONT-SIZE: 12px; WORD-BREAK: break-all; FONT-FAMILY: 宋体
+}
+TEXTAREA {
+	TABLE-LAYOUT: fixed; FONT-SIZE: 12px; WORD-BREAK: break-all; FONT-FAMILY: 宋体
+}
+FORM {
+	TABLE-LAYOUT: fixed; FONT-SIZE: 12px; WORD-BREAK: break-all; FONT-FAMILY: 宋体
+}
+SELECT {
+	COLOR: #000000; BACKGROUND-COLOR: #ffffff
+}
+.button1 {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; BORDER-LEFT-COLOR: #eeeeee; BACKGROUND: url(/images/button_bak.gif); BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #5a6ca2; BORDER-TOP-COLOR: #eeeeee; FONT-FAMILY: Arial; HEIGHT: 22px; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #5a6ca2
+}
+A:active {
+	FONT-SIZE: 12px; COLOR: darkblue
+}
+A:visited {
+	FONT-SIZE: 12px; COLOR: darkblue; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #669900; TEXT-DECORATION: none
+}
+A:link {
+	COLOR: darkblue; TEXT-DECORATION: none
+}
+INPUT.radio {
+	BACKGROUND: paleturquoise; COLOR: #000000
+}
+.button1 {  background: #cccccc; border-bottom: #665b8e 1px solid; border-left: #ffffff 1px solid; border-right: #665b8e 1px solid; border-top: #ffffff 1px solid; color: #333333; cursor: hand; font-family: "MS Shell Dlg", "Tahoma", "宋体"; font-size: 12px; height: 20px; padding: 1px}
+BODY {
+	FONT-SIZE: 9pt; 
+	FONT-FAMILY: 宋体;
+	margin-left:0;
+	margin-top:0;
+	margin-right:0;
+	SCROLLBAR-FACE-COLOR: #386CA0;
+	SCROLLBAR-HIGHLIGHT-COLOR: white;
+	SCROLLBAR-SHADOW-COLOR: #336699;
+	SCROLLBAR-ARROW-COLOR: black;
+	SCROLLBAR-BASE-COLOR:#386CA0;
+	scrollbar-3d-light-color: White;
+	scrollbar-dark-shadow-color: #336699;
+}

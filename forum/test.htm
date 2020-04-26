@@ -1,0 +1,640 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>Oblog3.0 用户后台管理</title>
+<link title="Oblog_Green" href="OblogStyle/OblogStyleAdminMain.css" rel="stylesheet" media="all" type="text/css" />
+<script type="text/javascript" src="OblogStyle/style_change.js"></script>
+<script src="inc/function.js" type="text/javascript"></script>
+</head>
+
+<body onUnload="chkcopy();">
+
+<div class="none"><p>Oblog用户管理界面（无样式纯文字版，适合手机及PDA，您可以点样式切换回其他界面）</p></div>
+
+<div id="top">
+  <div class="side_a1 side11"></div>
+  <div class="side_a2 side21"></div>
+  <div id="style_change">样式切换: <a href="javascript:void()" onClick="setActiveStyleSheet('Oblog_Green'); return false;"><img src="OblogStyle/OblogStyleAdminImages/style_green.gif" alt="绿色主题" width="20" height="20" border="0" align="absmiddle" /></a>&nbsp;  <a href="javascript:void()" onClick="setActiveStyleSheet('none'); return false;"><img src="OblogStyle/OblogStyleAdminImages/style_none.gif" alt="没有样式（纯文本）" width="20" height="20" border="0" align="absmiddle" /></a> </div> 
+  <div class="logo"></div>
+  
+  <div class="top_button">
+  		<a href="user_post.asp"><div class="none">发表Blog </div><img class="ico_5" src="OblogStyle/OblogStyleAdminImages/space.gif" alt="发表Blog" /></a>
+		<a href="user_blogmanage.asp"><div class="none">管理Blog </div><img class="ico_4" src="OblogStyle/OblogStyleAdminImages/space.gif" alt="管理Blog" /></a>
+		
+		<a href="user_photomanage.asp"><div class="none">我的相册</div><img class="ico_7" src="OblogStyle/OblogStyleAdminImages/space.gif" alt="我的相册" /></a>
+		
+		<a href="user_messages.asp"><div class="none">留言管理</div><img class="ico_3" src="OblogStyle/OblogStyleAdminImages/space.gif" alt="留言管理"/></a>
+		<a href="user_comments.asp"><div class="none">评论管理</div><img  class="ico_2" src="OblogStyle/OblogStyleAdminImages/space.gif" alt="评论管理" /></a>
+		<a href="user_update.asp"><div class="none">重建首页</div><img class="ico_1" src="OblogStyle/OblogStyleAdminImages/space.gif" alt="重建首页" /></a>
+		<a  href="user_logout.asp"><div class="none">退出登陆</div><img class="ico_6" src="OblogStyle/OblogStyleAdminImages/space.gif" alt="退出登陆" /></a>
+  </div>
+  <div class="top_menu">
+  <a href="http://bestfeng.mugou.com" target="_blank">bestfeng.mugou.com</a> | <a href="user_pmmanage.asp">短消息(0)</a> | <a href="index.asp" target="_blank">站点首页</a></div>
+</div>
+
+<div id="menu">
+	<div class="side_b1 side11"></div>
+  	<div class="side_b2 side21"></div>
+	<div class="menu_content">
+		<div class="menu_navimg"></div>
+		<div class="menu_alink">
+			<ul>
+			<li><a href="user_index.asp">管理首页</a></li>
+			<li><a href="user_subject.asp">分类管理</a></li>
+			<li><a href="user_template.asp">模版设置</a></li>
+			<li><a href="user_profile.asp">个人资料</a></li>
+			<li><a href="user_team.asp">团队播客</a></li>
+			<li><a href="user_files.asp">文件管理</a></li>
+			<li><a href="user_setting.asp">站点配置</a></li>
+			<li><a href="user_friends.asp">好友管理</a></li>
+			</ul>
+			</div>
+	</div>
+</div>
+
+<div id="main">
+  <div class="submenu">
+  	<div class="side_c1 side11"></div>
+    <div class="side_c2 side21"></div>
+	<div class="submenu_content">
+		&nbsp;| &nbsp; <a href="user_post.asp?ubb=0"><u>html方式添加日志(ie推荐)</u></a>
+		&nbsp;| &nbsp; <a href="user_post.asp?ubb=1"><u>ubb方式添加日志(firefox推荐)</u></a>
+		&nbsp;| &nbsp; <a href="user_blogmanage.asp"><u>所有日志管理</u></a>&nbsp;| &nbsp;
+	</div>
+  </div>
+  <div class="content">  
+  	<div class="content_top">
+		  	<div class="side_d1 side11"></div>
+		    <div class="side_d2 side21"></div>
+			发表
+	</div>
+	
+    <div class="content_body">
+
+<SCRIPT language=javascript>
+
+
+ function record(command, args)
+ {
+ 
+ if(command=="record")
+ { 
+ 	document.all.oblogform.recorded.value=args;
+	RecordLimited("begin");
+	
+ }
+ 
+ }
+function showrecord()
+{
+
+if(document.all.record_table.style.display=="none" ){
+document.all.record_table.style.display="" ;
+
+}else{
+
+document.all.record_table.style.display="none" ;
+}
+}
+
+function setdraft()
+{
+	document.oblogform.isdraft.value='1';
+}
+function VerifySubmit()
+{
+	submits(); 
+	topic = del_space(document.oblogform.topic.value);
+     if (topic.length == 0)
+     {
+        alert("您忘了填写题目!");
+	return false;
+     }
+	 
+	 var needclassid=1
+	 if (needclassid==1) {
+	 if (document.oblogform.classid.value == 0)
+     {
+        alert("请选择日志的类别!");
+	return false;
+     }
+	 }
+	 
+	 showword = del_space(document.oblogform.showword.value);
+      for(i = 0; i < showword.length; i++){
+	  if(showword.charAt(i) < "0" || showword.charAt(i) > "9"){
+	  alert("请输入正确的显示字数！");
+	  return false;  
+		 }
+     }
+	
+ 	if (document.oblogform.edit.value == "")
+     {
+        alert("请输入日志内容!");
+	return false;
+     }
+	var date=document.oblogform.selecty.value+"-"+document.oblogform.selectm.value+"-"+document.oblogform.selectd.value
+	var datereg=/^(\d{4})-(\d{1,2})-(\d{1,2})$/
+	var datareg=/^(\d){1,2}$/
+	if (!datereg.test(date)){
+	  alert("日志时间输入格式错误");
+	   return false;
+	 }
+	var r=date.match(datereg)
+	var d=new Date(r[1],r[2]-1,r[3])
+	if (!(d.getFullYear()==r[1]&&d.getMonth()==r[2]-1&&d.getDate()==r[3])){
+	  alert("日志时间输入格式错误");
+	   return false;
+	 }
+	 
+  var FormLimit = 51100
+  var TempVar = new String
+  TempVar = document.oblogform.edit.value
+  if (TempVar.length > FormLimit)
+	{
+	if (confirm("您要发布的日志太长，建议您拆分为几部分分别发布。\n如果您坚持提交，注意需要较长时间才能提交成功。\n\n是否坚持提交？") == false)
+	return false;
+	}
+	
+	  if (TempVar.length > FormLimit)
+  {
+    document.oblogform.edit.value = TempVar.substr(0, FormLimit)
+    TempVar = TempVar.substr(FormLimit)
+    while (TempVar.length > 0)
+    {
+      var objTEXTAREA = document.createElement("hidden")
+      objTEXTAREA.name = "logtext"
+      objTEXTAREA.value = TempVar.substr(0, FormLimit)
+      document.oblogform.appendChild(objTEXTAREA)
+      
+      TempVar = TempVar.substr(FormLimit)
+    }
+  }	
+ return true;
+}
+
+function setSort(s1,s2)
+{
+param=s1.selectedIndex-1;
+if(param>=0)
+	{
+	s2.options.length=0;						
+		for(i=0;i<p_array[param].length;i++)
+		{
+			s2.options.length++;
+			s2.options[i].text=p_array[param][i];
+			s2.options[i].value=p_array_id[param][i];
+		}
+
+	}else
+	{
+	s2.options.length=0;
+	s2.options.length++;
+	s2.options[0].text="我的专题";
+	s2.options[0].value="0";
+	}
+}
+</script> 
+<div id="list">
+	<form action="user_post.asp?action=savelog" target='_top' method="post" name="oblogform" id="oblogform" onSubmit="return VerifySubmit()">
+     <ul class="list_edit">日志标题： 
+	<input name="topic" type=text id="topic" size="60" maxlength="250" value=""> <font color="#FF0000"> *</font>
+
+	
+	
+	</ul>
+	
+	<ul class="list_edit"> 
+	日志心情： 
+	<input type="radio" name="face" value="0" checked>
+	无 
+	<input name="face" type="radio" value="1" > <img src="images/face/1.gif" width="20" height="20"> 
+	<input type="radio" name="face" value="2" > <img src="images/face/2.gif" width="20" height="20"> 
+	<input type="radio" name="face" value="3" > <img src="images/face/3.gif" width="20" height="20"> 
+	<input type="radio" name="face" value="4" > <img src="images/face/4.gif" width="20" height="20"> 
+	<input type="radio" name="face" value="5" > <img src="images/face/5.gif" width="20" height="20"> 
+	<input type="radio" name="face" value="6" > <img src="images/face/6.gif" width="18" height="20"> 
+	<input type="radio" name="face" value="7" > <img src="images/face/7.gif" width="20" height="20"> 
+	<input type="radio" name="face" value="8" > <img src="images/face/8.gif" width="20" height="20"> 
+	<input type="radio" name="face" value="9" > <img src="images/face/9.gif" width="20" height="20">
+	</ul>
+	<ul class="list_edit"> 
+	语言种类：	
+	
+	<select name="languageclassid" id="languageclassid">
+	<option value='1'>中文</option><option value='2'>英语</option><option value='3'>日语</option><option value='4'>法语</option><option value='5'>德语</option><option value='6'>韩语</option><option value='7'>俄语</option><option value='8'>西班牙语</option><option value='9'>其它语种</option> 
+	</select>
+
+	　 栏目分类： 
+	<select name="classid" id="classid">
+	<option value='0'>请选择类别</option><option value='1'>影视欣赏</option><option value='2'>流行乐坛</option><option value='3'>时事新闻</option><option value='4'>日常用语</option><option value='5'>美文赏析</option><option value='8'>电台媒体</option><option value='9'>幽默笑话</option><option value='11'>少儿乐园</option><option value='17'>情感绿洲</option><option value='12'>胡说八道</option><option value='18'>数码杂志</option><option value='16'>各地方言</option><option value='24'>口语听力</option><option value='25'>语法词汇</option><option value='26'>考试专栏</option><option value='27'>写作翻译</option><option value='29'>商务用语</option><option value='30'>学海无涯</option><option value='31'>留学海外</option><option value='32'>贴图专区</option><option value='33'>心情日记</option><option value='34'>另类视频</option><option value='35'>我型我秀</option><option value='36'>旅游摄影</option><option value='37'>快乐背诵</option><option value='38'>征友中心</option> 
+	</select><font color="#FF0000"> *</font>
+
+	　 我的专题(分类)： 
+	<select name="subjectid" id="subjectid">
+	<option value="0">不选择</option>
+
+	</select>
+
+	</ul>
+	<ul class="list_edit"> 
+	媒体格式： 
+	
+			<input type="checkbox" name="logmeidaclass0" id="logmeidaclass0" value="0" checked>文字 
+			<input type="checkbox" name="logmeidaclass1" id="logmeidaclass1" value="1">声音 
+			<input type="checkbox" name="logmeidaclass2" id="logmeidaclass2" value="2">图片 
+			<input type="checkbox" name="logmeidaclass3" id="logmeidaclass3" value="3">视频 
+			<input type="checkbox" name="logmeidaclass4" id="logmeidaclass4" value="4">音乐 
+			 
+
+<table>
+<tr>
+
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="550" height="300" id="record" align="middle">
+<param name="allowScriptAccess" value="sameDomain" />
+<param name="movie" value="record.swf?path=user2/7180/upload&filename=bestfeng15-31-002005118" />
+<param name="loop" value="false" />
+<param name="quality" value="high" />
+<param name="bgcolor" value="#cecb9c" /> 
+<embed src="record.swf?path=user2/7180/upload&filename=bestfeng15-31-002005118" loop="false" quality="high" bgcolor="#cecb9c" width="600" height="300" name="record" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+</object> 
+<script language="javascript">
+ function movieIsLoaded (theMovie) {
+if (typeof(theMovie) != "undefined") {
+return theMovie.PercentLoaded() == 100;
+} else {
+return false;
+}
+}
+
+ 
+function RecordLimited(arges)
+{
+	if(arges=="begin")
+	{
+	  window.setTimeout("RecordLimited('end')",15*60*1000,"javascript")
+	}else if(arges=="end"){
+		 
+//if (movieIsLoaded(thisMovie("record"))) {
+
+
+alert("你录像的时间已经超过15分钟，达到极限");
+
+//}
+
+}
+}
+</script>
+
+</tr>
+</table>
+
+
+	<input type="hidden" name="postchknum" value="1169" />
+	
+	</ul>
+	<input type="hidden" id="edit" name="edit" value="" />
+	
+<ul class="list_edit">
+<link rel="STYLESHEET" type="text/css" href="images/edit.css">
+<Script src="images/DhtmlEdit.js"></Script>
+<iframe id=d_file frameborder=0 src="upload.asp" width="100%" height="40" scrolling=no></iframe>
+<div id="cws_edit">
+	<ul id="ExtToolbar0">
+	<li >
+	<select id="cws_formatSelect"  onchange="cws_doSelectClick('FormatBlock',this)">
+	<option>段落格式</option>
+	<option value="&lt;P&gt;">普通格式 
+	<option value="&lt;H1&gt;">标题 1 
+	<option value="&lt;H2&gt;">标题 2 
+	<option value="&lt;H3&gt;">标题 3 
+	<option value="&lt;H4&gt;">标题 4 
+	<option value="&lt;H5&gt;">标题 5 
+	<option value="&lt;H6&gt;">标题 6 
+	<option value="&lt;H7&gt;">标题 7 
+	<option value="&lt;PRE&gt;">已编排格式 
+	<option value="&lt;ADDRESS&gt;">地址 
+	</select>
+	<select language="javascript" class="cws_TBGen" id="FontName" onchange="FormatText ('fontname',this[this.selectedIndex].value);">
+	<option class="heading" selected>字体 
+	<option value="宋体">宋体 
+	<option value="黑体">黑体 
+	<option value="楷体_GB2312">楷体 
+	<option value="仿宋_GB2312">仿宋 
+	<option value="隶书">隶书 
+	<option value="幼圆">幼圆 
+	<option value="新宋体">新宋体 
+	<option value="细明体">细明体 
+	<option value="Arial">Arial 
+	<option value="Arial Black">Arial Black 
+	<option value="Arial Narrow">Arial Narrow 
+	<option value="Bradley Hand ITC">Bradley Hand ITC 
+	<option value="Brush Script	MT">Brush Script MT 
+	<option value="Century Gothic">Century Gothic 
+	<option value="Comic Sans MS">Comic Sans MS 
+	<option value="Courier">Courier 
+	<option value="Courier New">Courier New 
+	<option value="MS Sans Serif">MS Sans Serif 
+	<option value="Script">Script 
+	<option value="System">System 
+	<option value="Times New Roman">Times New Roman 
+	<option value="Viner Hand ITC">Viner Hand ITC 
+	<option value="Verdana">Verdana 
+	<option value="Wide Latin">Wide Latin 
+	<option value="Wingdings">Wingdings</option>
+	</select>
+	<select language="javascript" class="cws_TBGen" id="FontSize" onchange="FormatText('fontsize',this[this.selectedIndex].value);">                                   
+	<option class="heading" selected>字号 
+	<option value="1">1 
+	<option value="2">2 
+	<option value="3">3 
+	<option value="4">4 
+	<option value="5">5 
+	<option value="6">6 
+	<option value="7">7</option>
+	</select>
+	</li>
+	<li class="cws_Btn" title="字体颜色" language="javascript" onclick="cws_foreColor();" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/fgcolor.gif" /> 
+	</li>
+	<li class="cws_Btn" title="字体背景颜色" language="javascript" onclick="cws_backColor();ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn';> 
+	<img class="cws_Ico" src="images/fbcolor.gif" /> 
+	</li>
+	<li class="cws_Btn" title="插入特殊符号" language="javascript" onclick="insertSpecialChar();" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn';> 
+	<img class="cws_Ico" src="images/specialchar.gif" /></li>
+	<li class="cws_Btn" title="替换" language="javascript" onclick="cws_replace();" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn';> 
+	<img class="cws_Ico" src="images/replace.gif" /> 
+	</li>
+	<li class="cws_Btn" title="清理代码" language="javascript" onclick="cws_CleanCode();ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn';> 
+	<img class="cws_Ico" src="images/cleancode.gif" /></li>
+	<li> 
+	<select ID="Zoom" class="cws_TBGen" onchange="doZoom(this)" >
+	<option value="100">100% 
+	<option value="50">50% 
+	<option value="75">75% 
+	<option value="100">100% 
+	<option value="125">125% 
+	<option value="150">150% 
+	<option value="175">175% 
+	<option value="200">200%</option>
+	</select>
+	</li>
+     <li class="cws_Btn" title="帮助" language="javascript" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn';> <a href="user_help.asp#edit" target="_blank"><img src="images/help.gif" class="cws_Ico" border="0"></a> 
+	</li>        
+	</ul>
+	<ul id="ExtToolbar1"> 
+	<li class="cws_Btn" title="全选" language="javascript" onclick="FormatText('selectAll');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn' > 
+	<img class="cws_Ico" src="images/selectAll.gif" /> 
+	</li>
+	<li class="cws_Btn" title="剪切" language="javascript" onclick="FormatText('cut');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/cut.gif" /> 
+	</li>
+	<li class="cws_Btn" title="复制" language="javascript" onclick="FormatText('copy');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/copy.gif" /> 
+	</li>
+	<li class="cws_Btn" title="粘贴" language="javascript" onclick="FormatText('paste');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/paste.gif" /> 
+	</li>
+	<li class="cws_Btn" title="撤消" language="javascript" onclick="FormatText('undo');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/undo.gif" /> 
+	</li>
+	<li class="cws_Btn" title="恢复" language="javascript" onclick="FormatText('redo');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/redo.gif" /> 
+	</li>
+	<li class="cws_Btn" title="插入超级链接" language="javascript" onclick="cws_forlink();ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/wlink.gif" > 
+	</li>
+	<li class="cws_Btn" title="去掉超级链接" language="javascript" onclick="FormatText('Unlink');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/unlink.gif" /> 
+	</li>
+	<li class="cws_Btn" title="插入图片" language="javascript" onclick="cws_forimg();ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/img.gif" /> 
+	</li>
+	<li class="cws_Btn" title="插入水平线" language="javascript" onclick="FormatText('InsertHorizontalRule', '');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/hr.gif" /> 
+	</li>
+	<li class="cws_Btn" title="插入表格" language="javascript" onclick="cws_fortable();ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/table.gif" /> 
+	</li>
+	<li class="cws_Btn" title="插入行" language="javascript" onclick="cws_InsertRow();ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/insertrow.gif" /> 
+	</li>
+	<li class="cws_Btn" title="删除行" language="javascript" onclick="cws_DeleteRow();ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/deleterow.gif" /> 
+	</li>
+	<li class="cws_Btn" title="插入列" language="javascript" onclick="cws_InsertColumn();ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/insertcolumn.gif" /> 
+	</li>
+	<li class="cws_Btn" title="删除列" language="javascript" onclick="cws_DeleteColumn();ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/deletecolumn.gif" /> 
+	</li>
+	<li class="cws_Btn" title="插入Flash" language="javascript" onclick="cws_forswf();ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/swf.gif" /> 
+	</li>
+	<li class="cws_Btn" title="插入Windows Media" language="javascript" onclick="cws_forwmv();ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/wmv.gif" /> 
+	</li>
+	<li class="cws_Btn" title="插入Real Media" language="javascript" onclick="cws_forrm();ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/rm.gif" /> 
+	</li>
+	</ul>
+	<ul id="ExtToolbar2"> 
+	<li class="cws_Btn" title="加粗" language="javascript" onclick="FormatText('bold', '');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/bold.gif" /> 
+	</li>
+	<li class="cws_Btn" title="斜体" language="javascript" onclick="FormatText('italic', '');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/italic.gif" /> 
+	</li>
+	<li class="cws_Btn" title="下划线" language="javascript" onclick="FormatText('underline', '');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/underline.gif" /> 
+	</li>
+	<li class="cws_Btn" title="上标" language="javascript" onclick="FormatText('superscript', '');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/superscript.gif" /> 
+	</li>
+	<li class="cws_Btn" title="下标" language="javascript" onclick="FormatText('subscript', '');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/subscript.gif" /> 
+	</li>
+	<li class="cws_Btn" title="删除线" language="javascript" onclick="FormatText('strikethrough', '');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/strikethrough.gif" /> 
+	</li>
+	<li class="cws_Btn" title="取消格式" language="javascript" onclick="FormatText('RemoveFormat', '');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/removeformat.gif" /> 
+	</li>
+	<li class="cws_Btn" title="左对齐" NAME="Justify" language="javascript" onclick="FormatText('justifyleft', '');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/aleft.gif" /> 
+	</li>
+	<li class="cws_Btn" title="居中" NAME="Justify" language="javascript" onclick="FormatText('justifycenter', '');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/center.gif" /> 
+	</li>
+	<li class="cws_Btn" title="右对齐" NAME="Justify" language="javascript" onclick="FormatText('justifyright', '');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/aright.gif" /> 
+	</li>
+	<li class="cws_Btn" title="编号" language="javascript" onclick="FormatText('insertorderedlist', '');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/numlist.gif" /> 
+	</li>
+	<li class="cws_Btn" title="项目符号" language="javascript" onclick="FormatText('insertunorderedlist', '');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/bullist.gif" /> 
+	</li>
+	<li class="cws_Btn" title="减少缩进量" language="javascript" onclick="FormatText('outdent', '');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/outdent.gif" /> 
+	</li>
+	<li class="cws_Btn" title="增加缩进量" language="javascript" onclick="FormatText('indent', '');ondrag='return false;'" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/indent.gif" /> 
+	</li>
+	<li class="cws_Btn" title="插入表情" language="javascript" onclick="cws_foremot()" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn'; > 
+	<img class="cws_Ico" src="images/smiley.gif" / > 
+	</li>
+	<!--
+	<li class="cws_Btn" title="上传文件" language="javascript" onclick="cws_forfile()" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn';>
+	<img class="cws_Ico" src="images/file.gif" />
+	</li>
+	-->
+	<li class="cws_Btn" title="插入代码" language="javascript" onclick="cws_code()" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn';>
+	<img class="cws_Ico" src="images/code.gif" />
+	</li>
+	<li class="cws_Btn" title="插入引用" language="javascript" onclick="cws_quote()" onmouseover=this.className='cws_BtnMouseOverUp'; onmouseout=this.className='cws_Btn';>
+	<img class="cws_Ico" src="images/quote.gif" />
+	</li>
+	</ul>
+	<ul style="height:100%" id="PostiFrame"><iframe class="cws_Composition" ID="cws_Composition" MARGINHEIGHT="5" MARGINWIDTH="5" width="100%" height="100%"></iframe> 
+	</ul>
+	<ul>
+	<li style="width:10px"></li>
+	<li class="cws_TabOn" id="cws_TabDesign" onClick="if (cws_bTextMode!=1) {cws_setMode(1);}"> 
+	<img src="images/mode.design.gif" ALIGN="absmiddle" width="20" height="20">&nbsp;设计</li>
+	<li style="width:10px"></li>
+	<li class="cws_TabOff" id="cws_TabView" onClick="cws_View();" > 
+	<img unselectable="on" src="images/mode.view.gif" ALIGN="absmiddle" width="20" height="20" />&nbsp;预览 
+	</li>
+	<li style="width:10px"></li>
+	<li class="cws_TabOff" id="cws_TabHtml" onClick="if (cws_bTextMode!=2) {cws_setMode(2);}" style="cursor: pointer;"><img unselectable="on" src="images/mode.html.gif" ALIGN="absmiddle" width=21 height=20 />&nbsp;源码</li>
+	<li style="width:300;text-align:right;">
+	<a href="javascript:cws_Size(-560)"><img src="images/minus.gif" border="0" /></a> 
+	<a href="javascript:cws_Size(320)"><img src="images/plus.gif" border="0" /></a></li>
+	<li style="width:10px"></li>
+	</ul>
+</div>
+</ul>
+<Script language="JavaScript">
+var cws_bIsIE5=document.all;
+var canusehtml='1';
+var PostType=1;
+if (cws_bIsIE5){
+	var IframeID=frames["cws_Composition"];
+}
+else{
+	var IframeID=document.getElementById("cws_Composition").contentWindow;
+	var cws_bIsNC=true;
+}
+
+if (cws_bLoad==false)
+{
+	cws_InitDocument("Body","GB2312");
+}
+function submits(){
+	var html;
+	html =cws_getText();
+	html=cws_rCode(html,"<a>　</a>","");
+ 	document.oblogform.edit.value=html;
+}
+function initx(){
+IframeID.document.body.innerHTML=document.oblogform.edit.value;
+}
+function initt(){
+IframeID.document.body.innerHTML="<a>　</a>"+document.oblogform.edit.value;
+}
+if (0==1) {
+	initt();
+}
+else{
+	initx();
+}
+function part()
+{
+	cws_InsertSymbol('#此前在首页部分显示#');
+}
+function pastestr()
+{
+	var tmpstr=window.clipboardData.getData("Text");
+	if (tmpstr!=null)
+	{
+		if (IframeID.document.body.innerHTML!="") {
+			if (confirm("您的编辑区有内容，是否覆盖？") == false)
+			return false;
+		}
+	IframeID.document.body.innerHTML=window.clipboardData.getData("Text");
+	}
+}
+</Script>
+<Script src="images/editor.js"></Script>
+
+<input type="hidden" name="isubb" id="isubb" value="0" />
+
+ 
+	<ul class="list_edit"> 
+	<input type="hidden" name="isdraft" id="isdraft" value="0" /> 
+	<input type="hidden" name="flvfullpath" id="flvfullpath" value=user2/7180/upload/bestfeng15-31-002005118.flv>
+	 <input type="hidden" name="recorded" id="recorded" value=0/>
+	<input type="hidden" name="flvfilename" id="flvfilename" value="bestfeng15-31-002005118.flv">	 
+	 
+	
+	<input type="submit" value="发布日志" />
+	　　<input type="submit" value="保存为草稿" onclick="setdraft();" />
+	　　<input type="button" onclick="part();" value="部分显示标记" />
+	　　<input type="button" onclick="pastestr();" value="灾难恢复" />			
+	　　<input type="reset" value="清除重写" />
+	</ul>
+	<ul class="list_edit">
+	<hr>
+	<strong>以下为日志高级选项(可选)：</strong>			
+	允许回复：<input name="isencomment" type="checkbox" value="1" checked>
+	　　仅好友可见(隐藏)：<input name="ishide" type="checkbox" value="1" >
+	　　首页固顶：<input name="istop" type="checkbox" value="1" >
+	</ul>
+	<ul class="list_edit"> 
+	日志密码： 
+	<input name="ispassword" type="password" id="ispassword" size="15" maxlength="15" value="">
+	(无密码请留空 )　　部分显示字数： 
+	<input name="showword" type="text" id="showword" value="500" size="6" maxlength="10">
+	(全部显示请留空) 
+	</ul>
+	<ul class="list_edit"> 
+	团队播客： 
+	<select name="blogteam" id="s1" onChange="setSort(this,this.form.s2);">
+	<option value="7180" >我的BLOG</option>
+
+	</select>
+	(选择日志发表在哪个BLOG)　　团队播客专题： 
+	<select name="blogteamsubject" id="s2">
+<option value=0 selected>我的专题</option>                
+	</select> 
+	</ul>
+	<ul class="list_edit"> 
+	引用通告： 
+	<input name="tb" type="text" id="tb" size="60" value="">
+	(<a href="user_help.asp#tb" target="_blank">什么是引用通告?</a>)
+	</ul>
+	<ul class="list_edit"> 
+	设置发表时间：<select name=selecty id=selecty><option value=2000>2000年</option><option value=2001>2001年</option><option value=2002>2002年</option><option value=2003>2003年</option><option value=2004>2004年</option><option value=2005 selected>2005年</option><option value=2006>2006年</option><option value=2007>2007年</option><option value=2008>2008年</option><option value=2009>2009年</option><option value=2010>2010年</option></select><select name=selectm id=selectm ><option value=1>1月</option><option value=2>2月</option><option value=3>3月</option><option value=4>4月</option><option value=5>5月</option><option value=6>6月</option><option value=7>7月</option><option value=8>8月</option><option value=9>9月</option><option value=10>10月</option><option value=11 selected>11月</option><option value=12>12月</option></select><select name=selectd id=selectd ><option value=1>1日</option><option value=2>2日</option><option value=3>3日</option><option value=4>4日</option><option value=5>5日</option><option value=6>6日</option><option value=7>7日</option><option value=8 selected>8日</option><option value=9>9日</option><option value=10>10日</option><option value=11>11日</option><option value=12>12日</option><option value=13>13日</option><option value=14>14日</option><option value=15>15日</option><option value=16>16日</option><option value=17>17日</option><option value=18>18日</option><option value=19>19日</option><option value=20>20日</option><option value=21>21日</option><option value=22>22日</option><option value=23>23日</option><option value=24>24日</option><option value=25>25日</option><option value=26>26日</option><option value=27>27日</option><option value=28>28日</option><option value=29>29日</option><option value=30>30日</option><option value=31>31日</option></select><select name=selecth id=selecth><option value=0>0时</option><option value=1>1时</option><option value=2>2时</option><option value=3>3时</option><option value=4>4时</option><option value=5>5时</option><option value=6>6时</option><option value=7>7时</option><option value=8>8时</option><option value=9>9时</option><option value=10>10时</option><option value=11>11时</option><option value=12>12时</option><option value=13>13时</option><option value=14>14时</option><option value=15 selected>15时</option><option value=16>16时</option><option value=17>17时</option><option value=18>18时</option><option value=19>19时</option><option value=20>20时</option><option value=21>21时</option><option value=22>22时</option><option value=23>23时</option></select><select name=selectmi id=selectmi><option value=0>0分</option><option value=1>1分</option><option value=2>2分</option><option value=3>3分</option><option value=4>4分</option><option value=5>5分</option><option value=6>6分</option><option value=7>7分</option><option value=8>8分</option><option value=9>9分</option><option value=10>10分</option><option value=11>11分</option><option value=12>12分</option><option value=13>13分</option><option value=14>14分</option><option value=15>15分</option><option value=16>16分</option><option value=17>17分</option><option value=18>18分</option><option value=19>19分</option><option value=20>20分</option><option value=21>21分</option><option value=22>22分</option><option value=23>23分</option><option value=24>24分</option><option value=25>25分</option><option value=26>26分</option><option value=27>27分</option><option value=28>28分</option><option value=29>29分</option><option value=30>30分</option><option value=31 selected>31分</option><option value=32>32分</option><option value=33>33分</option><option value=34>34分</option><option value=35>35分</option><option value=36>36分</option><option value=37>37分</option><option value=38>38分</option><option value=39>39分</option><option value=40>40分</option><option value=41>41分</option><option value=42>42分</option><option value=43>43分</option><option value=44>44分</option><option value=45>45分</option><option value=46>46分</option><option value=47>47分</option><option value=48>48分</option><option value=49>49分</option><option value=50>50分</option><option value=51>51分</option><option value=52>52分</option><option value=53>53分</option><option value=54>54分</option><option value=55>55分</option><option value=56>56分</option><option value=57>57分</option><option value=58>58分</option><option value=59>59分</option></select><select name=selects id=selects><option value=0 selected>0秒</option><option value=1>1秒</option><option value=2>2秒</option><option value=3>3秒</option><option value=4>4秒</option><option value=5>5秒</option><option value=6>6秒</option><option value=7>7秒</option><option value=8>8秒</option><option value=9>9秒</option><option value=10>10秒</option><option value=11>11秒</option><option value=12>12秒</option><option value=13>13秒</option><option value=14>14秒</option><option value=15>15秒</option><option value=16>16秒</option><option value=17>17秒</option><option value=18>18秒</option><option value=19>19秒</option><option value=20>20秒</option><option value=21>21秒</option><option value=22>22秒</option><option value=23>23秒</option><option value=24>24秒</option><option value=25>25秒</option><option value=26>26秒</option><option value=27>27秒</option><option value=28>28秒</option><option value=29>29秒</option><option value=30>30秒</option><option value=31>31秒</option><option value=32>32秒</option><option value=33>33秒</option><option value=34>34秒</option><option value=35>35秒</option><option value=36>36秒</option><option value=37>37秒</option><option value=38>38秒</option><option value=39>39秒</option><option value=40>40秒</option><option value=41>41秒</option><option value=42>42秒</option><option value=43>43秒</option><option value=44>44秒</option><option value=45>45秒</option><option value=46>46秒</option><option value=47>47秒</option><option value=48>48秒</option><option value=49>49秒</option><option value=50>50秒</option><option value=51>51秒</option><option value=52>52秒</option><option value=53>53秒</option><option value=54>54秒</option><option value=55>55秒</option><option value=56>56秒</option><option value=57>57秒</option><option value=58>58秒</option><option value=59>59秒</option></select> 
+	<input name="logid"  type="hidden" id="logid" value=0 >
+	<input name="oldisdraft"  type="hidden" id="oldisdraft" value=0 >
+	</ul>
+	</form>
+</div>
+
+	</div>
+	
+    <div class="content_bot">
+		  	<div class="side_e1 side12"></div>
+   			<div class="side_e2 side22"></div>
+ 	</div>
+	
+  </div>
+</div>  
+  
+  <div id="bottom"><center> www.mugou.com&nbsp;&copy;&nbsp;Copyright&nbsp;2005.&nbsp;All&nbsp;rights&nbsp;reserved.&nbsp;</center></div><div id="powered"><a href="http://oblog.oioj.net" target="_blank"><img src="images\cws_powered.gif" border="0" alt="Powered by Oblog." /></a></div>
+
+</body>
+</html>
+

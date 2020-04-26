@@ -1,0 +1,84 @@
+<% Sub header_theme %>
+
+<style type="text/css">
+<!--
+BODY {font-size:9pt;font-family:Tahoma,Verdana,MS Sans Serif,Courier New;}
+A:link,A:visited{text-decoration:none;}
+A:hover {text-decoration:underline;}
+A:hover {text-decoration:overline;color:#FFFF00}
+TR,TD,P{font-size:9pt}
+B{color:#E1005D;}
+INPUT.text,INPUT.file,SELECT,TEXTAREA{color:#000000;background-color:#FFFFFF;border:1 solid #220430}
+#TITLE{height:20;Filter: shadow(color=#00AAFF,direction=135);}
+.notice{position:relative;height:50;overflow:visible;border:0;z-index:2}
+FONT.table{color:#000000}
+FONT.strong{color:#FFFFEE;font-weight:bold}
+.footer{color:#FFFFEE;font-size:8pt}
+.info,.title{background-color:#002F90}
+.outter{background-color:#350682}
+.cell{background-color:#9B9D9A}
+FONT.search{color:#FFFFFF}
+FONT.notice{color:#FFFFFF}
+.retable{background-color:#FFFFFF}
+.rcontent{background-color:#F0F0F0}
+-->
+</style>
+</head>
+<body bgcolor="#220430" text="#000000" link="#EB6093" vlink="#EB6093" alink="#EB6093" topmargin=20>
+
+<div align=center>
+<!-- HEADER_END -->
+<style><!--
+FONT.small{font-size:7pt}
+--></style>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+	<tr><td align=right colspan=5><table cellspacing="0" cellpadding="3" width=100% border="0"><tr><td rowspan=2 width=300>
+</td><td align=right></td></tr><tr><td valign=bottom align=right><nobr>
+<a href="http://fserver/coolcount" target="_top"><img src="theme/default/home.gif" border="0" align="absmiddle" width=16 height=16 alt="HOME"> 主页</a>
+<a href="default.asp"><img src="theme/default/stats.gif" border="0" align="absmiddle" width=16 height=16 alt="STATISTICS"> 最后访问</a>
+<a href="ViewInfo.asp"><img src="theme/default/stats.gif" border="0" align="absmiddle" width=16 height=16 alt="STATISTICS"> 详细统计</a>
+</td></tr></table></td></tr>
+<tr>
+<td><img src="theme/WBMania/lefttc.gif" width=19 height=31></td>
+<td background="theme/WBMania/top.gif"><img src="theme/WBMania/leftt.gif" width=60 height=31></td>
+<td background="theme/WBMania/top.gif" width="2000"><span id=TITLE>
+<font class=strong> STATISTICS SINCE <b><%=StartDate%></b></font>
+</span></td>
+<td><img src="theme/WBMania/rightt.gif" width=85 height=31></td>
+<td><img src="theme/WBMania/righttc.gif" width=14 height=31></td>
+</tr>
+<tr>
+<td valign=top background="theme/WBMania/left.gif"><img src="theme/WBMania/leftt2.gif" width=19 height=46></td>
+<td rowspan=3 colspan=3 class=cell valign=top><table cellspacing="0" cellpadding="3" width=100% border="0">
+
+<% End Sub %>
+
+<% Sub footer_theme %>
+
+</table><tr><td colspan=2 align=center>截止日期: <%=logDate%>, 统计天数: <%=DayTotal%>/<%=TotalDays%> 天, 预计本日访问量: <%=intending%> 人</td></tr></td></tr>
+</table></td>
+<td valign=top background="theme/WBMania/right.gif"><img src="theme/WBMania/rightt2.gif" width=14 height=46></td>
+</tr>
+<tr>
+<td background="theme/WBMania/left.gif"><br></td>
+<td background="theme/WBMania/right.gif"><br></td>
+</tr>
+<tr> 
+    <td valign=bottom background="theme/WBMania/left.gif"><img src="theme/WBMania/leftb2.gif" width=19 height=55></td>
+    <td valign=bottom background="theme/WBMania/right.gif"><img src="theme/WBMania/rightb.gif" width=14 height=55></td>
+</tr>
+<tr> 
+    <td><img src="theme/WBMania/leftbc.gif" width=19 height=13></td>
+    <td><img src="theme/WBMania/leftb1.gif" width=83 height=13></td>
+    <td background="theme/WBMania/bottom.gif" colspan=2><br></td>
+    <td><img src="theme/WBMania/rightbc.gif" width=14 height=13></td>
+</tr>
+
+<tr><td colspan=5 align=center>
+<table cellspacing="0" cellpadding="3" width=100% border="0"><tr><td valign=top align=center width=60%></td><td>
+</td></tr>
+</table>
+</td></tr>
+</table>
+
+<% End Sub %>
